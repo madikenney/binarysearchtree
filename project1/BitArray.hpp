@@ -36,6 +36,9 @@ public:
 private:
 
   // TODO
+  int size;
+  int* arr = NULL;
+  bool valid;
 };
 
 #endif
