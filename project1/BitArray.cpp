@@ -2,7 +2,14 @@
 
 BitArray::BitArray() {
     // TODO
-    BitArray(8);
+    current_size = 8;
+    arr = new int[current_size];
+
+    for(int i=0; i<current_size; i++){
+        arr[i] = 0;
+    }
+    
+    valid = true;
 }
 
 BitArray::BitArray(intmax_t init_size) {
