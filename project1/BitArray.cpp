@@ -73,7 +73,7 @@ void BitArray::set(intmax_t index)
         valid = false;
         return;
     }
-    arr[index] = 1;
+    arr[current_size-index-1] = 1;
 }
 
 void BitArray::reset(intmax_t index)
@@ -82,7 +82,7 @@ void BitArray::reset(intmax_t index)
         valid = false;
         return;
     }
-    arr[index] = 0;
+    arr[current_size-index-1] = 0;
 }
 
 void BitArray::toggle(intmax_t index)
