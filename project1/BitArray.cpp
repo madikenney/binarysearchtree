@@ -47,7 +47,7 @@ intmax_t BitArray::size() const
 
 bool BitArray::good() const
 {
-    return false;
+    return valid;
 }
 
 void BitArray::set(intmax_t index)
