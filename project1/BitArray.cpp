@@ -30,6 +30,7 @@ BitArray::BitArray(const std::string & value) {
 
 BitArray::~BitArray() {
     // TODO
+    delete arr;
 }
 
 // TODO: other methods
