@@ -7,10 +7,10 @@ BitArray::BitArray() {
 
 BitArray::BitArray(intmax_t init_size) {
     // TODO
-    size = init_size;
-    arr = new int[size];
+    current_size = init_size;
+    arr = new int[current_size];
 
-    for(int i=0; i<size; i++){
+    for(int i=0; i<current_size; i++){
         arr[i] = 0;
     }
     
@@ -26,3 +26,37 @@ BitArray::~BitArray() {
 }
 
 // TODO: other methods
+
+intmax_t BitArray::size() const
+{
+    return intmax_t();
+}
+
+bool BitArray::good() const
+{
+    return false;
+}
+
+void BitArray::set(intmax_t index)
+{
+}
+
+void BitArray::reset(intmax_t index)
+{
+}
+
+void BitArray::toggle(intmax_t index)
+{
+}
+
+bool BitArray::test(intmax_t index)
+{
+    return false;
+}
+
+std::string BitArray::asString() const
+{
+    return std::string();
+}
+
+
