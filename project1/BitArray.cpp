@@ -38,7 +38,7 @@ BitArray::BitArray(const std::string & value) {
 
     current_size = value.length();
     arr = new int[current_size];
-    
+
 
     for(int i=0; i<current_size; i++){
         arr[i] = stoi(value.substr(i,1));
@@ -83,7 +83,11 @@ bool BitArray::test(intmax_t index)
 
 std::string BitArray::asString() const
 {
-    return std::string();
+    std::string result = "";
+    for(int i=0; i<current_size; i++){
+        result = result + std::to_string(arr[i]);
+    }
+    return result;
 }
 
 
