@@ -14,6 +14,11 @@ BitArray::BitArray() {
 
 BitArray::BitArray(intmax_t init_size) {
     // TODO
+    if (init_size <= 0){
+        valid = false;
+        return;
+    }
+    
     current_size = init_size;
     arr = new int[current_size];
 
