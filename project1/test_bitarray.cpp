@@ -45,3 +45,14 @@ TEST_CASE( "Bitarray: Test set", "[bitarray]" ) {
 
 
 /* Your test cases here */
+TEST_CASE( "Bitarray: Test toggle", "[bitarray]" ) {
+    std::string test_string("10001000");
+    BitArray b;
+    b.toggle(3);
+    b.toggle(7);
+    REQUIRE(b.size() == 8);
+    REQUIRE(b.good());
+    REQUIRE(b.asString() == test_string);
+    b.toggle(7);
+    REQUIRE(b.asString() == "00001000");
+}

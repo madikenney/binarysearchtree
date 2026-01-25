@@ -90,6 +90,11 @@ void BitArray::reset(intmax_t index)
 
 void BitArray::toggle(intmax_t index)
 {
+    if(arr[current_size-index-1]==0){
+        set(index);
+        return;
+    }
+    reset(index);
 }
 
 bool BitArray::test(intmax_t index)
