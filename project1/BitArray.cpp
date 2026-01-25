@@ -39,8 +39,11 @@ BitArray::BitArray(const std::string & value) {
     current_size = value.length();
     arr = new int[current_size];
 
-
     for(int i=0; i<current_size; i++){
+        if(i != 0 && i != 1){
+            valid = false;
+            return;
+        }
         arr[i] = stoi(value.substr(i,1));
     }
     
@@ -66,10 +69,20 @@ bool BitArray::good() const
 
 void BitArray::set(intmax_t index)
 {
+    if(index<0 || index>current_size){
+        valid = false;
+        return;
+    }
+    arr[index] = 1;
 }
 
 void BitArray::reset(intmax_t index)
 {
+    if(index<0 || index>current_size){
+        valid = false;
+        return;
+    }
+    arr[index] = 0;
 }
 
 void BitArray::toggle(intmax_t index)
@@ -89,5 +102,3 @@ std::string BitArray::asString() const
     }
     return result;
 }
-
-
