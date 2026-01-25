@@ -31,6 +31,20 @@ BitArray::BitArray(intmax_t init_size) {
 
 BitArray::BitArray(const std::string & value) {
     // TODO
+    if(value.length()<=0){
+        valid = false;
+        return;
+    }
+
+    current_size = value.length();
+    arr = new int[current_size];
+    
+
+    for(int i=0; i<current_size; i++){
+        arr[i] = stoi(value.substr(i,1));
+    }
+    
+    valid = true;
 }
 
 BitArray::~BitArray() {
