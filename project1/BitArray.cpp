@@ -72,7 +72,7 @@ bool BitArray::good() const
 
 void BitArray::set(intmax_t index)
 {
-    if(index<0 || index>current_size){
+    if(index<0 || index>current_size-1){
         valid = false;
         return;
     }
@@ -81,7 +81,7 @@ void BitArray::set(intmax_t index)
 
 void BitArray::reset(intmax_t index)
 {
-    if(index<0 || index>current_size){
+    if(index<0 || index>current_size-1){
         valid = false;
         return;
     }
@@ -99,7 +99,7 @@ void BitArray::toggle(intmax_t index)
 
 bool BitArray::test(intmax_t index)
 {
-    if(index<0 || index>current_size){
+    if(index<0 || index>current_size-1){
         valid = false;
         return false;
     }
