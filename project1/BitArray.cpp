@@ -29,7 +29,7 @@ BitArray::~BitArray() {
 
 intmax_t BitArray::size() const
 {
-    return intmax_t();
+    return current_size;
 }
 
 bool BitArray::good() const
