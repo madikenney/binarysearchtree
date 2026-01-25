@@ -55,7 +55,7 @@ BitArray::BitArray(const std::string & value) {
 
 BitArray::~BitArray() {
     // TODO
-    delete arr;
+    delete[] arr;
 }
 
 // TODO: other methods
@@ -99,6 +99,15 @@ void BitArray::toggle(intmax_t index)
 
 bool BitArray::test(intmax_t index)
 {
+    if(index<0 || index>current_size){
+        valid = false;
+        return false;
+    }
+
+    if(arr[current_size-index-1]==1){
+        return true;
+    }
+
     return false;
 }
 
