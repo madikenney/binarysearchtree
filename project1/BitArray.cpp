@@ -40,11 +40,14 @@ BitArray::BitArray(const std::string & value) {
     arr = new int[current_size];
 
     for(int i=0; i<current_size; i++){
-        if(i != 0 && i != 1){
+        int current = stoi(value.substr(i,1));
+        
+        if(current != 0 && current != 1){
             valid = false;
             return;
         }
-        arr[i] = stoi(value.substr(i,1));
+        
+        arr[i] = current;
     }
     
     valid = true;
