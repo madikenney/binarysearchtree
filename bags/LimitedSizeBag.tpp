@@ -31,7 +31,7 @@ bool LimitedSizeBag<T>::isEmpty() const
 template<typename T>
 std::size_t LimitedSizeBag<T>::getCurrentSize() const
 {
-  return 0;
+  return size;
 }
 
 template<typename T>
