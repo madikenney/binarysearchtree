@@ -103,6 +103,9 @@ bool DynamicBag<T>::contains(const T& item) const
 
 template<typename T>
 void DynamicBag<T>::clear(){
+  T* newBag = new T[0];
+  delete[] bag;
+  bag = newBag;
   size = 0;
 }
 
