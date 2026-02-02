@@ -93,6 +93,11 @@ std::size_t DynamicBag<T>::getCurrentSize() const
 template<typename T>
 bool DynamicBag<T>::contains(const T& item) const
 {  
+  for(int i=0; i<size; i++){
+    if(item == Bag[i]){
+      return true;
+    }
+  }
   return false;
 }
 
