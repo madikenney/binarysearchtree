@@ -20,7 +20,7 @@ template<typename T>
 bool LimitedSizeBag<T>::remove(const T& item)
 {
   for(int i=0; i<size; i++){
-    if(Bag[i].equals(item)){
+    if(Bag[i] == item){
       for(int j=i; j<size-1; j++){
         Bag[j]=Bag[j+1];
       }
@@ -50,7 +50,9 @@ bool LimitedSizeBag<T>::contains(const T& item) const
 }
 
 template<typename T>
-void LimitedSizeBag<T>::clear(){}
+void LimitedSizeBag<T>::clear(){
+  size=0;
+}
 
 template<typename T>
 std::size_t LimitedSizeBag<T>::getFrequencyOf(const T & item) const
