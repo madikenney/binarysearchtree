@@ -78,6 +78,9 @@ bool DynamicBag<T>::remove(const T& item)
 template<typename T>
 bool DynamicBag<T>::isEmpty() const
 {
+  if(size==0){
+    return true;
+  }
   return false;
 }
 
