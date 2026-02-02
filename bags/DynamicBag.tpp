@@ -32,7 +32,20 @@ void DynamicBag<T>::swap(DynamicBag<T>& x){}
 template<typename T>
 bool DynamicBag<T>::add(const T& item)
 {
-  return false;
+  int newSize = size++;
+  T* newBag = new T[newSize];
+
+  for(int i=0; i<newSize; i++){
+    newBag[i] = bag[i];
+  }
+
+  delete[] bag;
+  bag = newBag;
+  size = newSize;
+
+  bag[size] = item;
+
+  return true;
 }
 
 template<typename T>
