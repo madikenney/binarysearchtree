@@ -102,7 +102,9 @@ bool DynamicBag<T>::contains(const T& item) const
 }
 
 template<typename T>
-void DynamicBag<T>::clear(){}
+void DynamicBag<T>::clear(){
+  size = 0;
+}
 
 template<typename T>
 std::size_t DynamicBag<T>::getFrequencyOf(const T & item) const
