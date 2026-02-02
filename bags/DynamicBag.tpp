@@ -3,15 +3,22 @@
 
 template<typename T>
 DynamicBag<T>::DynamicBag() {
-  Bag = new T[0];
+  bag = new T[0];
 }
   
 
 template<typename T>
-DynamicBag<T>::DynamicBag(const DynamicBag<T>& x){}
+DynamicBag<T>::DynamicBag(const DynamicBag<T>& x){
+  bag = new T[size];
+  for(int i=0; i<size; i++){
+    bag[i] = x.bag[i];
+  }
+}
     
 template<typename T>
-DynamicBag<T>::~DynamicBag(){}
+DynamicBag<T>::~DynamicBag(){
+  delete[] bag;
+}
   
 template<typename T>
 DynamicBag<T>& DynamicBag<T>::operator=(DynamicBag<T> x)
