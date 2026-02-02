@@ -4,6 +4,7 @@
 template<typename T>
 DynamicBag<T>::DynamicBag() {
   bag = new T[0];
+  size=0;
 }
   
 
@@ -25,20 +26,23 @@ DynamicBag<T>& DynamicBag<T>::operator=(DynamicBag<T> x)
 {  
   std::swap(bag, x.bag);
   std::swap(size, x.size);
-  
+
   return *this;
 }
 
 template<typename T>
-void DynamicBag<T>::swap(DynamicBag<T>& x){}
+void DynamicBag<T>::swap(DynamicBag<T>& x){
+  std::swap(bag, x.bag);
+  std::swap(size, x.size);
+}
 
 template<typename T>
 bool DynamicBag<T>::add(const T& item)
 {
-  int newSize = size++;
+  int newSize = size + 1;
   T* newBag = new T[newSize];
 
-  for(int i=0; i<newSize; i++){
+  for(int i=0; i<size; i++){
     newBag[i] = bag[i];
   }
 
@@ -54,9 +58,10 @@ bool DynamicBag<T>::add(const T& item)
 template<typename T>
 bool DynamicBag<T>::remove(const T& item)
 {
+  
+  int newSize = size - 1;
   for(int i=0; i<newSize; i++){
     if(bag[i] == item){
-      int newSize = size--;
       T* newBag = new T[newSize];
       
       for(int j=i; j<size-1; j++){
@@ -97,7 +102,7 @@ template<typename T>
 bool DynamicBag<T>::contains(const T& item) const
 {  
   for(int i=0; i<size; i++){
-    if(item == Bag[i]){
+    if(item == bag[i]){
       return true;
     }
   }
