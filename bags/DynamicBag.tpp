@@ -2,7 +2,9 @@
 #include <utility>
 
 template<typename T>
-DynamicBag<T>::DynamicBag() {}
+DynamicBag<T>::DynamicBag() {
+  Bag = new T[0];
+}
   
 
 template<typename T>
