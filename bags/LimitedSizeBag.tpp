@@ -19,6 +19,15 @@ bool LimitedSizeBag<T>::add(const T& item)
 template<typename T>
 bool LimitedSizeBag<T>::remove(const T& item)
 {
+  for(int i=0; i<size; i++){
+    if(Bag[i].equals(item)){
+      for(int j=i; j<size-1; j++){
+        Bag[j]=Bag[j+1];
+      }
+      size--;
+      return true;
+    }
+  }
   return false;
 }
 
