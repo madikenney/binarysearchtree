@@ -23,6 +23,9 @@ DynamicBag<T>::~DynamicBag(){
 template<typename T>
 DynamicBag<T>& DynamicBag<T>::operator=(DynamicBag<T> x)
 {  
+  std::swap(bag, x.bag);
+  std::swap(size, x.size);
+  
   return *this;
 }
 
