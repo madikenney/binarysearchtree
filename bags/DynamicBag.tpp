@@ -10,6 +10,7 @@ DynamicBag<T>::DynamicBag() {
 
 template<typename T>
 DynamicBag<T>::DynamicBag(const DynamicBag<T>& x){
+  size = x.size;
   bag = new T[size];
   for(int i=0; i<size; i++){
     bag[i] = x.bag[i];
@@ -46,11 +47,11 @@ bool DynamicBag<T>::add(const T& item)
     newBag[i] = bag[i];
   }
 
+  newBag[size] = item;
+
   delete[] bag;
   bag = newBag;
-  size = newSize;
-
-  bag[size] = item;
+  size++;
 
   return true;
 }
@@ -60,12 +61,12 @@ bool DynamicBag<T>::remove(const T& item)
 {
   
   int newSize = size - 1;
-  for(int i=0; i<newSize; i++){
+  for(int i=0; i<size; i++){
     if(bag[i] == item){
       T* newBag = new T[newSize];
       
-      for(int j=i; j<size-1; j++){
-        newBag[j]=bag[j+1];
+      for(int j=i+1; j<size; j++){
+        newBag[j-1]=bag[j];
       }
 
       for(int k=0; k<i; k++){
@@ -74,7 +75,7 @@ bool DynamicBag<T>::remove(const T& item)
 
       delete[] bag;
       bag = newBag;
-      size = newSize;
+      size--;
       return true;
     }
   }

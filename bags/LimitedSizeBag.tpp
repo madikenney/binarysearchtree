@@ -8,7 +8,7 @@ LimitedSizeBag<T>::LimitedSizeBag() {
 template<typename T>
 bool LimitedSizeBag<T>::add(const T& item)
 {
-  if(size>100){
+  if(size>=100){
     return false;
   }
   Bag[size] = item;
