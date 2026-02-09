@@ -27,14 +27,15 @@ ArrayList<T>::ArrayList(const ArrayList &x)
 template <typename T>
 ArrayList<T> &ArrayList<T>::operator=(ArrayList x)
 {
-  // TODO (use copy swap idiom)
+  swap(x);
   return *this;
 }
 
 template <typename T>
 void ArrayList<T>::swap(ArrayList &x) 
 {
-  // TODO
+  std::swap(arr,x.arr);
+  std::swap(length,x.length);
 }
 
 template <typename T>
