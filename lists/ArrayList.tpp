@@ -43,7 +43,7 @@ template <typename T>
 std::size_t ArrayList<T>::getLength() const noexcept
 {
   // TODO
-  return 0;
+  return length;
 }
 
 template <typename T>
