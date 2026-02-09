@@ -4,6 +4,9 @@ template <typename T>
 LinkedList<T>::LinkedList()
 {
   // TODO
+  length = 0;
+  head = nullptr;
+  tail = nullptr;
 }
 
 template <typename T>

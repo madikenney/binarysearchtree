@@ -37,7 +37,9 @@ class LinkedList: public AbstractList<T>
   private:
 
     //TODO
-  
+    int length;
+    Node<T>* head;
+    Node<T>* tail;
 };
 
 #include "LinkedList.tpp"
