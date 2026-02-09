@@ -29,7 +29,8 @@ LinkedList<T> &LinkedList<T>::operator=(LinkedList<T> x)
 template <typename T>
 void LinkedList<T>::swap(LinkedList &x)
 {
-  // TODO
+  std::swap(head,x.head);
+  std::swap(length,x.length);
 }
 
 template <typename T>
