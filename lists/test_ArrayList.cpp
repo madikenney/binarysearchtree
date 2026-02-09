@@ -4,7 +4,12 @@
 #include "ArrayList.hpp"
 
 
-TEST_CASE( "TODO", "[ArrayList]" ) {
+TEST_CASE( "Default Constructor", "[ArrayList]" ) {
 
   ArrayList<int> list;
+  REQUIRE(list.getLength() == 0);
+}
+
+TEST_CASE("List Argument Constructor", "[ArrayList]" ) {
+
 }
