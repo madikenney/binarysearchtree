@@ -59,3 +59,17 @@ TEST_CASE("Copy Assignment Operator", "[ArrayList]" ) {
   REQUIRE(b.getEntry(1) == 2);
   REQUIRE(b.getEntry(2) == 3);
 }
+
+TEST_CASE("Clear", "[ArrayList]" ) {
+  // implicitly tests swap(), which is used in the copy-swap idiom
+  
+  ArrayList<int> a;
+  a.insert(0,1);
+  a.insert(1,2);
+  a.insert(2,3);
+
+  a.clear();
+
+  REQUIRE(a.getLength() == 0);
+  REQUIRE_THROWS_AS(a.getEntry(1),std::out_of_range);
+}
