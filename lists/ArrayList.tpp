@@ -36,7 +36,7 @@ template <typename T>
 bool ArrayList<T>::isEmpty() const noexcept
 {
   // TODO
-  return false;
+  return (length==0);
 }
 
 template <typename T>
