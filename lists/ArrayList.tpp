@@ -88,7 +88,7 @@ void ArrayList<T>::remove(std::size_t position)
 template <typename T>
 void ArrayList<T>::clear() 
 {
-  // TODO
+  length = 0;
 }
 
 template <typename T>
@@ -97,11 +97,16 @@ T ArrayList<T>::getEntry(std::size_t position) const
   if(position >= length){
     throw std::out_of_range("Out of bounds");
   }
+  
   return arr[position];
 }
 
 template <typename T>
 void ArrayList<T>::setEntry(std::size_t position, const T &newValue) 
 {
-  // TODO
+  if(position >= length){
+    throw std::out_of_range("Out of bounds");
+  }
+
+  arr[position] = newValue;
 }
