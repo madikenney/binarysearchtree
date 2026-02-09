@@ -3,7 +3,8 @@
 template <typename T>
 ArrayList<T>::ArrayList()
 {
-  // TODO
+  arr = new T[0];
+  length = 0;
 }
 
 template <typename T>
