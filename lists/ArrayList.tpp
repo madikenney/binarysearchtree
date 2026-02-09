@@ -87,8 +87,10 @@ void ArrayList<T>::clear()
 template <typename T>
 T ArrayList<T>::getEntry(std::size_t position) const
 {
-  // TODO
-  return T();
+  if(position >= length){
+    throw std::out_of_range;
+  }
+  return arr[position];
 }
 
 template <typename T>
