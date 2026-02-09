@@ -20,5 +20,15 @@ TEST_CASE("List Argument Constructor", "[ArrayList]" ) {
   ArrayList<int> b(a);
   REQUIRE(b.getLength() == 3);
   REQUIRE(b.getEntry(0) == 1);
-  
+}
+
+TEST_CASE("Insert & Get Entry", "[ArrayList]" ) {
+  ArrayList<int> a;
+  a.insert(0,1);
+  a.insert(1,2);
+  a.insert(2,3);
+
+  REQUIRE(a.getEntry(0) == 1);
+  REQUIRE(a.getEntry(1) == 2);
+  REQUIRE(a.getEntry(2) == 3);
 }
