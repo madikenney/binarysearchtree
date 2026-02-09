@@ -1,0 +1,12 @@
+[
+{
+  "directory": "/Users/Macbook151/Desktop/ECE 0302/ECE0302-MBK81/lists/build",
+  "command": "/usr/bin/clang++   -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk -mmacosx-version-min=14.6 -std=gnu++11 -o CMakeFiles/test-array-list.dir/test_ArrayList.cpp.o -c \"/Users/Macbook151/Desktop/ECE 0302/ECE0302-MBK81/lists/test_ArrayList.cpp\"",
+  "file": "/Users/Macbook151/Desktop/ECE 0302/ECE0302-MBK81/lists/test_ArrayList.cpp"
+},
+{
+  "directory": "/Users/Macbook151/Desktop/ECE 0302/ECE0302-MBK81/lists/build",
+  "command": "/usr/bin/clang++   -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk -mmacosx-version-min=14.6 -std=gnu++11 -o CMakeFiles/test-linked-list.dir/test_LinkedList.cpp.o -c \"/Users/Macbook151/Desktop/ECE 0302/ECE0302-MBK81/lists/test_LinkedList.cpp\"",
+  "file": "/Users/Macbook151/Desktop/ECE 0302/ECE0302-MBK81/lists/test_LinkedList.cpp"
+}
+]

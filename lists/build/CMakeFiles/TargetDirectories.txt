@@ -1,0 +1,6 @@
+/Users/Macbook151/Desktop/ECE 0302/ECE0302-MBK81/lists/build/CMakeFiles/test-array-list.dir
+/Users/Macbook151/Desktop/ECE 0302/ECE0302-MBK81/lists/build/CMakeFiles/test-linked-list.dir
+/Users/Macbook151/Desktop/ECE 0302/ECE0302-MBK81/lists/build/CMakeFiles/submission.dir
+/Users/Macbook151/Desktop/ECE 0302/ECE0302-MBK81/lists/build/CMakeFiles/test.dir
+/Users/Macbook151/Desktop/ECE 0302/ECE0302-MBK81/lists/build/CMakeFiles/edit_cache.dir
+/Users/Macbook151/Desktop/ECE 0302/ECE0302-MBK81/lists/build/CMakeFiles/rebuild_cache.dir
