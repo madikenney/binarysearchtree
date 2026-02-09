@@ -15,11 +15,13 @@ ArrayList<T>::~ArrayList()
 
 template <typename T>
 ArrayList<T>::ArrayList(const ArrayList &x) 
-{
-  arr = new T[x.length()];
-  for(int i=0; i<x.length(); i++){
-    arr[i] = x[i];
+{ 
+  arr = new T[x.getLength()];
+  for(int i=0; i<x.getLength(); i++){
+    arr[i] = x.getEntry(i);
   }
+
+  length = x.getLength();
 }
 
 template <typename T>
@@ -51,7 +53,7 @@ template <typename T>
 void ArrayList<T>::insert(std::size_t position, const T &item)
 {
   if(position > length){
-    throw std::out_of_range;
+    throw std::out_of_range("Out of bounds");
   }
 
   T* newArr = new T[length+1];
@@ -88,7 +90,7 @@ template <typename T>
 T ArrayList<T>::getEntry(std::size_t position) const
 {
   if(position >= length){
-    throw std::out_of_range;
+    throw std::out_of_range("Out of bounds");
   }
   return arr[position];
 }
