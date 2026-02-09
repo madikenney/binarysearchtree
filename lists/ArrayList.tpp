@@ -10,7 +10,7 @@ ArrayList<T>::ArrayList()
 template <typename T>
 ArrayList<T>::~ArrayList() 
 {
-  // TODO
+  delete[] arr;
 }
 
 template <typename T>
