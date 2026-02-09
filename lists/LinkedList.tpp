@@ -22,7 +22,7 @@ LinkedList<T>::LinkedList(const LinkedList<T> &x)
 template <typename T>
 LinkedList<T> &LinkedList<T>::operator=(LinkedList<T> x)
 {
-  // TODO (use copy swap idiom)
+  swap(x);
   return *this;
 }
 
