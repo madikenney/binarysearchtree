@@ -38,21 +38,38 @@ void ArrayList<T>::swap(ArrayList &x)
 template <typename T>
 bool ArrayList<T>::isEmpty() const noexcept
 {
-  // TODO
   return (length==0);
 }
 
 template <typename T>
 std::size_t ArrayList<T>::getLength() const noexcept
 {
-  // TODO
   return length;
 }
 
 template <typename T>
 void ArrayList<T>::insert(std::size_t position, const T &item)
 {
-  // TODO
+  if(position > length){
+    throw std::out_of_range;
+  }
+
+  T* newArr = new T[length+1];
+
+  for(int i=0; i<position; i++){
+    newArr[i] = arr[i];
+  }
+
+  newArr[position] = item;
+
+  for(int i=position; i<length; i++){
+    newArr[i+1] = arr[i];
+  }
+
+  delete[] arr;
+
+  arr = newArr;
+  length++;
 }
 
 template <typename T>
