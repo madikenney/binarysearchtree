@@ -4,7 +4,10 @@
 #include "LinkedList.hpp"
 
 
-TEST_CASE( "TODO", "[LinkedList]" ) {
+TEST_CASE( "Default Constructor", "[LinkedList]" ) {
 
-    LinkedList<int> list;
+    LinkedList<int> a;
+
+    REQUIRE(a.getLength()==0);
+    REQUIRE(a.isEmpty());
 }
