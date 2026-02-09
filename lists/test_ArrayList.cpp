@@ -97,4 +97,11 @@ TEST_CASE("Remove", "[ArrayList]" ) {
   REQUIRE(a.getLength() == 2);
   REQUIRE(a.getEntry(0) == 1);
   REQUIRE(a.getEntry(1) == 3);
+  REQUIRE_THROWS_AS(a.getEntry(2),std::out_of_range);
+
+  a.remove(0);
+  REQUIRE(a.getLength() == 1);
+  REQUIRE(a.getEntry(0) == 3);
+  REQUIRE_THROWS_AS(a.getEntry(1),std::out_of_range);
+  REQUIRE_THROWS_AS(a.getEntry(2),std::out_of_range);
 }
