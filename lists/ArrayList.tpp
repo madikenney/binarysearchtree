@@ -84,10 +84,17 @@ void ArrayList<T>::remove(std::size_t position)
 
   T* newArr = new T[length-1];
 
-  for(int i=length-1; i>position; i--){
-    arr[i-1] = arr[i];
+  for(int i=0; i<position; i++){
+    newArr[i] = arr[i];
   }
 
+  for(int i=position+1; i<length; i++){
+    newArr[i-1] = arr[i];
+  }
+
+  delete[] arr;
+
+  arr = newArr;
   length--;
 }
 
