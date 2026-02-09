@@ -52,11 +52,29 @@ void LinkedList<T>::insert(std::size_t position, const T &item)
   if(position > length){
     throw std::out_of_range("Out of bounds");
   }
+  
+  Node<T>* newNode = new Node<T>(item);
 
-  for(int i=0; i<position; i++){
+  if(position == 0){
+    newNode->setNext(head);
+    head = newNode;
+    if(length == 0){
+      tail = newNode;
+    }
 
+    length++;
+    return;
   }
 
+  Node<T>* previous = head;
+  for(int i=0; i<position-1; i++){
+    previous = previous->getNext();
+  }
+
+  newNode->setNext(previous->getNext());
+  previous->setNext(newNode);
+
+  length++;
 }
 
 template <typename T>
