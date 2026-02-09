@@ -49,7 +49,14 @@ std::size_t LinkedList<T>::getLength() const noexcept
 template <typename T>
 void LinkedList<T>::insert(std::size_t position, const T &item)
 {
-  // TODO
+  if(position > length){
+    throw std::out_of_range("Out of bounds");
+  }
+
+  for(int i=0; i<position; i++){
+
+  }
+
 }
 
 template <typename T>
@@ -61,7 +68,7 @@ void LinkedList<T>::remove(std::size_t position)
 template <typename T>
 void LinkedList<T>::clear()
 {
-  // TODO
+  length = 0;
 }
 
 template <typename T>
