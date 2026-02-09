@@ -85,3 +85,16 @@ TEST_CASE("SetEntry", "[ArrayList]" ) {
   REQUIRE(a.getEntry(1) == 2);
   REQUIRE(a.getEntry(2) == 3);
 }
+
+TEST_CASE("Remove", "[ArrayList]" ) {
+  ArrayList<int> a;
+  a.insert(0,1);
+  a.insert(1,2);
+  a.insert(2,3);
+
+  a.remove(1);
+
+  REQUIRE(a.getLength() == 2);
+  REQUIRE(a.getEntry(0) == 1);
+  REQUIRE(a.getEntry(1) == 3);
+}

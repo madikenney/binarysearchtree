@@ -83,6 +83,12 @@ void ArrayList<T>::remove(std::size_t position)
   }
 
   T* newArr = new T[length-1];
+
+  for(int i=length-1; i>position; i--){
+    arr[i-1] = arr[i];
+  }
+
+  length--;
 }
 
 template <typename T>
