@@ -5,14 +5,12 @@ LinkedList<T>::LinkedList()
 {
   length = 0;
   head = nullptr;
-  tail = nullptr;
 }
 
 template <typename T>
 LinkedList<T>::~LinkedList()
 {
-  delete head;
-  delete tail;
+  
 }
 
 template <typename T>
@@ -58,10 +56,6 @@ void LinkedList<T>::insert(std::size_t position, const T &item)
   if(position == 0){
     newNode->setNext(head);
     head = newNode;
-    if(length == 0){
-      tail = newNode;
-    }
-
     length++;
     return;
   }
@@ -80,7 +74,17 @@ void LinkedList<T>::insert(std::size_t position, const T &item)
 template <typename T>
 void LinkedList<T>::remove(std::size_t position)
 {
-  // TODO
+  if(position >= length){
+    throw std::out_of_range("Out of bounds");
+  }
+
+  Node<T>* current = head;
+  for(int i=0; i<position-1; i++){
+    current = current->getNext();
+  }
+
+  current->setNext(current->getNext()->getNext());
+  length--;
 }
 
 template <typename T>
@@ -107,5 +111,14 @@ T LinkedList<T>::getEntry(std::size_t position) const
 template <typename T>
 void LinkedList<T>::setEntry(std::size_t position, const T &newValue)
 {
-  // TODO
+  if(position >= length){
+    throw std::out_of_range("Out of bounds");
+  }
+
+  Node<T>* current = head;
+  for(int i=0; i<position; i++){
+    current = current->getNext();
+  }
+
+  current->setItem(newValue);
 }
