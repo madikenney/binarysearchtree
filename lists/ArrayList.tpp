@@ -16,7 +16,10 @@ ArrayList<T>::~ArrayList()
 template <typename T>
 ArrayList<T>::ArrayList(const ArrayList &x) 
 {
-  // TODO
+  arr = new T[x.length()];
+  for(int i=0; i<x.length(); i++){
+    arr[i] = x[i];
+  }
 }
 
 template <typename T>
