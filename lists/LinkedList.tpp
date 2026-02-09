@@ -10,13 +10,20 @@ LinkedList<T>::LinkedList()
 template <typename T>
 LinkedList<T>::~LinkedList()
 {
-  
+  delete head;
 }
 
 template <typename T>
 LinkedList<T>::LinkedList(const LinkedList<T> &x)
 {
-  // TODO
+  head = nullptr;
+  length = 0;
+
+  Node<T>* current = x.head;
+  while(current != nullptr){
+    insert(length, current->getItem());
+    current = current->getNext();
+  }
 }
 
 template <typename T>

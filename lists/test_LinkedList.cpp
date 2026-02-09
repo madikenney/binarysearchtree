@@ -57,3 +57,41 @@ TEST_CASE( "Remove", "[LinkedList]" ) {
     REQUIRE_THROWS_AS(a.getEntry(2),std::out_of_range);
     REQUIRE(a.getLength()==2);
 }
+
+TEST_CASE( "Operator=", "[LinkedList]" ) {
+
+    LinkedList<int> a;
+
+    // 1 2 3
+    a.insert(0,1);
+    a.insert(1,2);
+    a.insert(2,3);
+
+    LinkedList<int> b;
+
+    b.insert(0,10);
+
+    b = a;
+
+    REQUIRE(b.getEntry(0)==1);
+    REQUIRE(b.getEntry(1)==2);
+    REQUIRE(b.getEntry(2)==3);
+    REQUIRE(b.getLength()==3);
+}
+
+TEST_CASE( "Copy", "[LinkedList]" ) {
+
+    LinkedList<int> a;
+
+    // 1 2 3
+    a.insert(0,1);
+    a.insert(1,2);
+    a.insert(2,3);
+
+    LinkedList<int> b(a);
+
+    REQUIRE(b.getEntry(0)==1);
+    REQUIRE(b.getEntry(1)==2);
+    REQUIRE(b.getEntry(2)==3);
+    REQUIRE(b.getLength()==3);
+}
