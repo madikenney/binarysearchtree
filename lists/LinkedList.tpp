@@ -74,8 +74,16 @@ void LinkedList<T>::clear()
 template <typename T>
 T LinkedList<T>::getEntry(std::size_t position) const
 {
-  // TODO
-  return T();
+  if(position >= length){
+    throw std::out_of_range("Out of bounds");
+  }
+
+  Node<T>* current = head;
+  for(int i=0; i<position; i++){
+    current = current->getNext();
+  }
+
+  return current->getItem();
 }
 
 template <typename T>
