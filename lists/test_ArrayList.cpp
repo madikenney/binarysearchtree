@@ -33,6 +33,12 @@ TEST_CASE("Insert & Get Entry", "[ArrayList]" ) {
   REQUIRE(a.getEntry(2) == 3);
 }
 
+TEST_CASE("Invalid Insert & Get Entry", "[ArrayList]" ) {
+  ArrayList<int> a;
+  REQUIRE_THROWS_AS(a.insert(10,1),std::out_of_range);
+  REQUIRE_THROWS_AS(a.getEntry(10),std::out_of_range);
+}
+
 TEST_CASE("Copy Assignment Operator", "[ArrayList]" ) {
   // implicitly tests swap(), which is used in the copy-swap idiom
   
@@ -53,4 +59,3 @@ TEST_CASE("Copy Assignment Operator", "[ArrayList]" ) {
   REQUIRE(b.getEntry(1) == 2);
   REQUIRE(b.getEntry(2) == 3);
 }
-
