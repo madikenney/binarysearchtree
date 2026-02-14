@@ -9,8 +9,13 @@ LinkedList<T>::LinkedList()
 
 template <typename T>
 LinkedList<T>::~LinkedList()
-{
-  delete head;
+{ 
+  Node<T>* current = head;
+    while(current != nullptr){
+        Node<T>* nextNode = current->getNext();
+        delete current;
+        current = nextNode;
+    }
 }
 
 template <typename T>
@@ -86,18 +91,34 @@ void LinkedList<T>::remove(std::size_t position)
     throw std::out_of_range("Out of bounds");
   }
 
-  Node<T>* current = head;
-  for(int i=0; i<position-1; i++){
-    current = current->getNext();
+  Node<T>* toDelete = nullptr;
+
+  if(position == 0){
+    toDelete = head;
+    head = head->getNext();
+  } else {
+    Node<T>* current = head;
+    for(int i=0; i<position-1; i++){
+        current = current->getNext();
+    }
+    toDelete = current->getNext();
+    current->setNext(toDelete->getNext());
   }
 
-  current->setNext(current->getNext()->getNext());
+  delete toDelete;
   length--;
 }
 
 template <typename T>
 void LinkedList<T>::clear()
 {
+  Node<T>* current = head;
+    while(current != nullptr){
+        Node<T>* nextNode = current->getNext();
+        delete current;
+        current = nextNode;
+    }
+  head = nullptr;
   length = 0;
 }
 
