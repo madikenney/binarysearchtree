@@ -13,11 +13,13 @@ void Expression::setFromPrefix(const std::string &pre)
 {
   // TODO: check format
   if(!isPre(pre)){
+    throw std::invalid_argument("Invalid Argument");
     return;
   }
 
   // TODO: store prefix and postfix forms
   prefixForm = pre;
+  postfixForm = "";
   prefixToPostfix(pre, postfixForm);
 }
 
@@ -25,10 +27,12 @@ void Expression::setFromPostfix(const std::string &post)
 {
   // TODO: check format
   if(!isPost(post)){
+    throw std::invalid_argument("Invalid Argument");
     return;
   }
   // TODO: store prefix and postfix forms
   postfixForm = post;
+  prefixForm = "";
   postfixToPrefix(post,prefixForm);
 }
 
@@ -72,10 +76,10 @@ void Expression::postfixToPrefix(const std::string &postfix, std::string &prefix
     start1 = endPost(postfix, postfix.length()-2);
     start2 = endPost(postfix, start1-1);
 
-    postfixToPrefix(postfix.substr(postfix.length()-1+start1,start1),prefix);
-    postfixToPrefix(postfix.substr(start1-1,start2-start1),prefix);
-
     prefix += last_char;
+
+    postfixToPrefix(postfix.substr(start1,start2-start1),prefix);
+    postfixToPrefix(postfix.substr(postfix.length()-1,start1),prefix);
   } else {
     prefix += last_char;
   }
