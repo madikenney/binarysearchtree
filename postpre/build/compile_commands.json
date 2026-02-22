@@ -1,0 +1,12 @@
+[
+{
+  "directory": "/Users/Macbook151/Desktop/ECE 0302/ECE0302-MBK81/postpre/build",
+  "command": "/usr/bin/clang++   -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk -mmacosx-version-min=14.6 -std=gnu++11 -o CMakeFiles/test-expression.dir/test_Expression.cpp.o -c \"/Users/Macbook151/Desktop/ECE 0302/ECE0302-MBK81/postpre/test_Expression.cpp\"",
+  "file": "/Users/Macbook151/Desktop/ECE 0302/ECE0302-MBK81/postpre/test_Expression.cpp"
+},
+{
+  "directory": "/Users/Macbook151/Desktop/ECE 0302/ECE0302-MBK81/postpre/build",
+  "command": "/usr/bin/clang++   -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk -mmacosx-version-min=14.6 -std=gnu++11 -o CMakeFiles/test-expression.dir/Expression.cpp.o -c \"/Users/Macbook151/Desktop/ECE 0302/ECE0302-MBK81/postpre/Expression.cpp\"",
+  "file": "/Users/Macbook151/Desktop/ECE 0302/ECE0302-MBK81/postpre/Expression.cpp"
+}
+]

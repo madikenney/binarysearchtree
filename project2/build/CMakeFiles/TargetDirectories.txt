@@ -1,0 +1,5 @@
+/Users/Macbook151/Desktop/ECE 0302/ECE0302-MBK81/project2/build/CMakeFiles/test-FindPalindrome.dir
+/Users/Macbook151/Desktop/ECE 0302/ECE0302-MBK81/project2/build/CMakeFiles/submission.dir
+/Users/Macbook151/Desktop/ECE 0302/ECE0302-MBK81/project2/build/CMakeFiles/test.dir
+/Users/Macbook151/Desktop/ECE 0302/ECE0302-MBK81/project2/build/CMakeFiles/edit_cache.dir
+/Users/Macbook151/Desktop/ECE 0302/ECE0302-MBK81/project2/build/CMakeFiles/rebuild_cache.dir

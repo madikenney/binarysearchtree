@@ -18,7 +18,7 @@ TEST_CASE("Test isPost", "[postpre]") {
 }
 
 TEST_CASE("Test isPre", "[postpre]") {
-  std::string prefix_valid = "+ab";
+  std::string prefix_valid = "+a+bc";
   std::string prefix_invalid_format = "a+b";
   std::string prefix_invalid_chars = "+a2";
   REQUIRE(Expression::isPre(prefix_valid));
@@ -75,3 +75,25 @@ TEST_CASE("Postpre: Test setFromPostfix simple", "[postpre]") {
 }
 
 /* TODO: Your test cases here */
+TEST_CASE("Postpre: setFromPrefix","[postpre]"){
+  Expression e;
+  e.setFromPrefix("-*/abcd"); //
+  REQUIRE(e.getPrefix() == "-*/abcd"); // ((a/b) *c)  - d
+  REQUIRE(e.getPostfix() == "ab/c*d-");
+}
+
+TEST_CASE("Postpre: setFromPostfix","[postpre]"){
+  Expression e;
+  e.setFromPostfix("ab/c*d-");
+  REQUIRE(e.getPrefix() == "-*/abcd");
+  REQUIRE(e.getPostfix() == "ab/c*d-");
+}
+
+TEST_CASE("Postpre: Invalid Args"){
+  Expression e;
+  REQUIRE_THROWS_AS(e.setFromPrefix("ab/c*d-"),std::invalid_argument);
+  REQUIRE_THROWS_AS(e.setFromPostfix("-*/abcd"),std::invalid_argument);  
+
+  REQUIRE_THROWS_AS(e.setFromPrefix("abcd"),std::invalid_argument);
+  REQUIRE_THROWS_AS(e.setFromPostfix("abcd"),std::invalid_argument);
+}

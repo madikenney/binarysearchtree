@@ -68,8 +68,6 @@ void Expression::prefixToPostfix(const std::string &prefix, std::string &postfix
 }
 
 void Expression::postfixToPrefix(const std::string &postfix, std::string &prefix) const {
-
-  // TODO: recursive function
   int start1, start2;
   char last_char = postfix[postfix.length()-1];
   if(isOperator(last_char)){
@@ -78,8 +76,8 @@ void Expression::postfixToPrefix(const std::string &postfix, std::string &prefix
 
     prefix += last_char;
 
-    postfixToPrefix(postfix.substr(start1,start2-start1),prefix);
-    postfixToPrefix(postfix.substr(postfix.length()-1,start1),prefix);
+    postfixToPrefix(postfix.substr(start2,start1-start2),prefix);
+    postfixToPrefix(postfix.substr(start1,postfix.length()-1-start1),prefix);
   } else {
     prefix += last_char;
   }
