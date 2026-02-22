@@ -40,7 +40,18 @@ void FindPalindrome::recursiveFindPalindromes(std::vector<std::string>
 	}
 
 	// Recursive Case: still need to add to candidateSentence
-	
+	for(int i=0; i<remainingWords.size(); i++){
+		// Create new vectors to pass to next call
+		std::vector<std::string> newCandidates = candidateSentence;
+		std::vector<std::string> newRemaining = remainingWords;
+
+		// Add the next word from remaining to candidates, and remove it from remaining
+		newCandidates.push_back(remainingWords[i]);
+		newRemaining.erase(newRemaining.begin() + i);
+
+		// call function again with new candidates & remaining
+		recursiveFindPalindromes(newCandidates, newRemaining);
+	}
 }
 
 bool FindPalindrome::isPalindrome(std::string testString) const
