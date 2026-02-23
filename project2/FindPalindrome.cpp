@@ -56,7 +56,7 @@ void FindPalindrome::recursiveFindPalindromes(std::vector<std::string>
 
 		// call function again with new candidates & remaining
 		if(!cutTest2(newCandidates, newRemaining)){
-			return;
+			continue;
 		}
 		recursiveFindPalindromes(newCandidates, newRemaining);
 	}
@@ -181,11 +181,11 @@ bool FindPalindrome::cutTest2(const std::vector<std::string> & wordVector1,
 				break;
 			}
 		}
-		if(!found){
+		if(!found)
 			return false;
-		}
 	}
-	return false;
+
+	return true;
 }
 
 bool FindPalindrome::add(const std::string & newWord)
