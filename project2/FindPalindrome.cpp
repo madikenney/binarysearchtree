@@ -109,25 +109,31 @@ bool FindPalindrome::cutTest1(const std::vector<std::string> & wordVector)
 		return true;
 	}
 
-	int count;
-	char current;
-	bool oddFlag;
+	int count = 0;
+	char current = 'a';
+	bool oddFlag = false;
 
+	// continue checking until no characters left in sentence
 	while(sentence.length() != 0){
 		current = sentence[0];
 		count = 0;
 
+		// check for character equality; if equal, count and remove from sentence
 		for(int i=0; i<sentence.length(); i++){
 			if(sentence[i] == current){
 				count++;
 				sentence.erase(i);
+				i--;
 			}
 		}
 
+		// if odd number of characters counted -
 		if(count%2 == 1){
+			// if oddFlag already activated, test has failed
 			if(oddFlag){
 				return false;
 			} else {
+				// continue checking
 				oddFlag = true;
 			}
 		}
@@ -169,8 +175,8 @@ bool FindPalindrome::add(const std::string & newWord)
 	// Add word and refind palindromes
 	words.push_back(newWord);
 	palindromes.clear();
-	if(cutTest1(words)){
-		return true;
+	if(!cutTest1(words)){
+		return false;
 	}
 	recursiveFindPalindromes({}, words);
 
