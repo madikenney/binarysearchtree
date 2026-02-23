@@ -105,20 +105,29 @@ bool FindPalindrome::cutTest1(const std::vector<std::string> & wordVector)
 		sentence += convertToLowerCase(wordVector[i]);
 	}
 
+	if(sentence.length()%2 == 0){
+		return true;
+	}
+
 	int count;
 	char current;
 	bool oddFlag;
-	for(int i=0; i<sentence.length(); i++){
+
+	while(sentence.length() != 0){
 		current = sentence[0];
 		count = 0;
-		
-		if(sentence[i] == current){
-			count++;
+
+		for(int i=0; i<sentence.length(); i++){
+			if(sentence[i] == current){
+				count++;
+				sentence.erase(i);
+			}
 		}
+
 		if(count%2 == 1){
 			if(oddFlag){
 				return false;
-			} else{
+			} else {
 				oddFlag = true;
 			}
 		}
