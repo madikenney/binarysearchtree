@@ -99,8 +99,32 @@ void FindPalindrome::clear()
 
 bool FindPalindrome::cutTest1(const std::vector<std::string> & wordVector)
 {
-	// TODO 
-	return false;
+	// turn vector into single string
+	std::string sentence;
+	for(int i=0; i<wordVector.size(); i++){
+		sentence += convertToLowerCase(wordVector[i]);
+	}
+
+	int count;
+	char current;
+	bool oddFlag;
+	for(int i=0; i<sentence.length(); i++){
+		current = sentence[0];
+		count = 0;
+		
+		if(sentence[i] == current){
+			count++;
+		}
+		if(count%2 == 1){
+			if(oddFlag){
+				return false;
+			} else{
+				oddFlag = true;
+			}
+		}
+	}
+
+	return true;
 }
 
 bool FindPalindrome::cutTest2(const std::vector<std::string> & wordVector1,
@@ -136,6 +160,9 @@ bool FindPalindrome::add(const std::string & newWord)
 	// Add word and refind palindromes
 	words.push_back(newWord);
 	palindromes.clear();
+	if(cutTest1(words)){
+		return true;
+	}
 	recursiveFindPalindromes({}, words);
 
 	return true;
@@ -155,4 +182,3 @@ std::vector< std::vector<std::string> > FindPalindrome::toVector() const
 {
 	return palindromes;
 }
-
