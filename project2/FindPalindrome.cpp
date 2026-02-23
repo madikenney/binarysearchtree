@@ -55,6 +55,9 @@ void FindPalindrome::recursiveFindPalindromes(std::vector<std::string>
 		newRemaining.erase(newRemaining.begin() + i);
 
 		// call function again with new candidates & remaining
+		if(!cutTest2(newCandidates, newRemaining)){
+			return;
+		}
 		recursiveFindPalindromes(newCandidates, newRemaining);
 	}
 }
@@ -145,7 +148,43 @@ bool FindPalindrome::cutTest1(const std::vector<std::string> & wordVector)
 bool FindPalindrome::cutTest2(const std::vector<std::string> & wordVector1,
                               const std::vector<std::string> & wordVector2)
 {
-	// TODO 
+	// turn word vectors into strings
+	std::string sentence1, sentence2;
+	for(int i=0; i<wordVector1.size(); i++)
+		sentence1 += convertToLowerCase(wordVector1[i]);
+	
+	for(int i=0; i<wordVector2.size(); i++)
+		sentence2 += convertToLowerCase(wordVector2[i]);
+
+	// determine shorter/longer sentences
+	std::string shorter, longer;
+	if(sentence1.length() > sentence2.length()){
+		shorter = sentence2;
+		longer = sentence1;
+	} else {
+		shorter = sentence1;
+		longer = sentence2;
+	}
+	
+	char current;
+	bool found = false;
+
+	while(shorter.length() != 0){
+		current = shorter[0];
+		found = false;
+
+		for(int j=0; j<longer.length(); j++){
+			if(longer[j] == current){
+				shorter.erase(0,1);
+				longer.erase(j,1);
+				found = true;
+				break;
+			}
+		}
+		if(!found){
+			return false;
+		}
+	}
 	return false;
 }
 
