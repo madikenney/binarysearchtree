@@ -11,6 +11,11 @@ TEST_CASE("Test recursion", "[FindPalindrome]"){
 	REQUIRE(b.add("a"));
 	REQUIRE(b.add("AA"));
 	REQUIRE(b.add("AaA"));
+	
+	REQUIRE_FALSE(b.add("a"));
+	REQUIRE_FALSE(b.add("AA"));
+	REQUIRE_FALSE(b.add("AaA"));
+	
 	REQUIRE(b.number() == 6);
 }
 

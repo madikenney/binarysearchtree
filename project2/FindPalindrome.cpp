@@ -1,6 +1,7 @@
 #include <string>
 #include <vector>
 #include "FindPalindrome.hpp"
+#include <iostream>
 
 //------------------- HELPER FUNCTIONS -----------------------------------------
 
@@ -13,7 +14,7 @@ static std::string convertToLowerCase(std::string value)
 	std::string result;
 	
 	for (int i=0; i<value.size(); i++) {
-		result[i] = tolower(value[i]);
+		result += tolower(value[i]);
 	}
 
 	return result;
@@ -127,6 +128,7 @@ bool FindPalindrome::add(const std::string & newWord)
 		}
 	}
 
+	// Add word and refind palindromes
 	words.push_back(newWord);
 	palindromes.clear();
 	recursiveFindPalindromes({}, words);
@@ -136,8 +138,12 @@ bool FindPalindrome::add(const std::string & newWord)
 
 bool FindPalindrome::add(const std::vector<std::string> & wordVector)
 {
-	// TODO 
-	return false;
+	for(int i=0; i<wordVector.size(); i++){
+		if(!add(wordVector[i])){
+			return false;
+		}
+	}
+	return true;
 }
 
 std::vector< std::vector<std::string> > FindPalindrome::toVector() const
