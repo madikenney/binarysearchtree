@@ -49,3 +49,33 @@ TEST_CASE("Test invalid words", "[FindPalindrome]"){
 	
 	REQUIRE(a.number() == 0);
 }
+
+TEST_CASE("Test clear", "[FindPalindrome]"){
+	FindPalindrome b;
+
+	REQUIRE(b.add("a"));
+	REQUIRE(b.add("AA"));
+	REQUIRE(b.add("AaA"));
+	REQUIRE(b.number() == 6);
+
+	b.clear();
+	REQUIRE(b.number() == 0);
+}
+
+TEST_CASE("Test cut tests", "[FindPalindrome]"){
+	FindPalindrome b;
+	REQUIRE_FALSE(b.cutTest1({"aaa","bbb"}));
+	REQUIRE(b.cutTest1({"aaaa","bbb"}));
+
+	REQUIRE(b.cutTest2({"aa","bb"},{"aaa","bbb"}));
+	REQUIRE_FALSE(b.cutTest2({"aa","bb"},{"ccc","ddd"}));
+}
+
+TEST_CASE("Test toVector", "[FindPalindrome]"){
+	FindPalindrome b;
+	std::vector<std::string> v = {"car","race"};	
+	b.add(v);
+
+	std::vector< std::vector<std::string> > a = {{"race","car"}};
+	REQUIRE(b.toVector() == a);
+}
