@@ -26,17 +26,21 @@ void FindPalindrome::recursiveFindPalindromes(std::vector<std::string>
         candidateSentence, std::vector<std::string> remainingWords)
 {
 	// Base Case: no words left -> test sentence
-	if(remainingWords.empty()){
+	if(remainingWords.size() == 0){
 		std::string sentence;
 
+		// create sentence from candidate sentence
+		// convert all words to lower case for palindrome checking
+		// sentence contains no spaces
 		for(int i=0; i<candidateSentence.size(); i++){
-			sentence += candidateSentence[i];
+			sentence += convertToLowerCase(candidateSentence[i]);
 		}
 
+		// if the sentence is a palindrome, add it to palindromes vector
 		if(isPalindrome(sentence)){
 			palindromes.push_back(candidateSentence);
 		}
-
+		
 		return;
 	}
 
@@ -73,12 +77,13 @@ bool FindPalindrome::isPalindrome(std::string testString) const
 
 FindPalindrome::FindPalindrome()
 {
-	// TODO
+	words.clear();
+	palindromes.clear();
 }
 
 FindPalindrome::~FindPalindrome()
 {
-	// TODO 
+	
 }
 
 int FindPalindrome::number() const
