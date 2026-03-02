@@ -8,6 +8,11 @@
 template<typename T> 
 inline void quick_sort(List<T>& list, int first, int last)
 {
+	// base case to stop sorting
+	if(first >= last){
+		return;
+	}
+	
 	// find pivot
 	int pivotIndex = partition(list, first, last);
 	
@@ -25,7 +30,7 @@ inline void quick_sort(List<T>& list, int first, int last)
  * @return index of the pivot item after partitioning */
 template <typename T>
 inline int partition(List<T>& list, int first, int last) {
-	int pivot = list.getEntry(0);
+	T pivot = list.getEntry(first);
 	int pivotIndex = 0;
 
 	return 0;

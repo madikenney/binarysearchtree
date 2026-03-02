@@ -127,5 +127,13 @@ void List<T>::setEntry(std::size_t position, const T& newValue)
 template <typename T>
 void List<T>::moveEntry(std::size_t from, std::size_t to)
 {
-  //TODO
+  if(to >= length || from >= length){
+    throw std::out_of_range("Out of bounds");
+  }
+  if(from == to){
+    return;
+  }
+
+  arr[to] = arr[from];
+  remove(from);
 }
