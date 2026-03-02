@@ -15,7 +15,7 @@ TEST_CASE("Sort: Test move entry", "[sorting]") {
   lst.insert(4, 11);
 
   // move forward
-  //lst.moveEntry(0, 2);
+  lst.moveEntry(0, 2);
 
   REQUIRE(lst.getLength() == 5);
   REQUIRE(lst.getEntry(0) == 4);

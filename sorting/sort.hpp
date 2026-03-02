@@ -31,9 +31,32 @@ inline void quick_sort(List<T>& list, int first, int last)
 template <typename T>
 inline int partition(List<T>& list, int first, int last) {
 	T pivot = list.getEntry(first);
-	int pivotIndex = 0;
 
-	return 0;
+	int left = first+1;
+	int right = last;
+
+	bool done = false;
+	while(!done){
+		while(list.getEntry(left) < pivot){
+			left++;
+		}
+		while(list.getEntry(right) > pivot){
+			right--;
+		}
+		if(left < right){
+			T temp = list.getEntry(left);
+			list.setEntry(left, list.getEntry(right));
+			list.setEntry(right, temp);
+			left++;
+			right--;
+		} else {
+			done = true;
+		}
+	}
+
+	list.setEntry(first, list.getEntry(right));
+	list.setEntry(right, pivot);
+	return right;
 }
 
 #endif
