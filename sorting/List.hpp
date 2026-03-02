@@ -37,6 +37,8 @@ public:
 private:
 
   //TODO
+  int length;
+  T* arr;
   
 };
 

@@ -3,6 +3,8 @@
 
 #include "List.hpp"
 
+#include <utility>
+
 template<typename T> 
 inline void quick_sort(List<T>& list, int first, int last)
 {
@@ -23,7 +25,8 @@ inline void quick_sort(List<T>& list, int first, int last)
  * @return index of the pivot item after partitioning */
 template <typename T>
 inline int partition(List<T>& list, int first, int last) {
-	
+	int pivot = list.getEntry(0);
+	int pivotIndex = 0;
 
 	return 0;
 }
