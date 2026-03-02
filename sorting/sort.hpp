@@ -37,16 +37,17 @@ inline int partition(List<T>& list, int first, int last) {
 
 	bool done = false;
 	while(!done){
-		while(list.getEntry(left) < pivot){
+		while(left <= right && list.getEntry(left) < pivot){
 			left++;
 		}
-		while(list.getEntry(right) > pivot){
+		while(left <= right && list.getEntry(right) > pivot){
 			right--;
 		}
 		if(left < right){
 			T temp = list.getEntry(left);
 			list.setEntry(left, list.getEntry(right));
 			list.setEntry(right, temp);
+			
 			left++;
 			right--;
 		} else {
