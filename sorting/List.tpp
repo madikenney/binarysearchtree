@@ -110,7 +110,7 @@ T List<T>::getEntry(std::size_t position) const
   if(position >= length){
     throw std::out_of_range("Out of bounds");
   }
-  
+
   return arr[position];
 }
 
@@ -133,7 +133,22 @@ void List<T>::moveEntry(std::size_t from, std::size_t to)
   if(from == to){
     return;
   }
+  
+  // save value of from
+  T temp = arr[from];
+  
+  // left shift
+  if(from < to){
+    for(int i=from; i<to; i++){
+      arr[i] = arr[i+1];
+    }
+  } else {
+    //right shift
+    for(int i=from; i>to; i--){
+      arr[i] = arr[i-1];
+    }
+  }
 
-  arr[to] = arr[from];
-  remove(from);
+  // put temp (from) in correct place
+  arr[to] = temp;
 }
