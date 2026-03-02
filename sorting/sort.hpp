@@ -6,7 +6,12 @@
 template<typename T> 
 inline void quick_sort(List<T>& list, int first, int last)
 {
-	// TODO
+	// find pivot
+	int pivotIndex = partition(list, first, last);
+	
+	// recurively sort subarrays smaller and larger than pivot
+	quick_sort(list, first, pivotIndex - 1);
+	quick_sort(list, pivotIndex + 1, last);
 }
 
 /** Partition a sub-list by moving items relative to the pivot.
@@ -18,7 +23,7 @@ inline void quick_sort(List<T>& list, int first, int last)
  * @return index of the pivot item after partitioning */
 template <typename T>
 inline int partition(List<T>& list, int first, int last) {
-	// TODO
+	
 
 	return 0;
 }
