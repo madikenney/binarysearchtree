@@ -110,18 +110,21 @@ TEST_CASE("Testing init from list", "[sorted list]") {
 }
 
 /* Your tests here */
-TEST_CASE("Test: insert", "[sorted list]") {
+TEST_CASE("Test: insert with duplicates", "[sorted list]") {
   SortedList<char> l;
   
   l.insert('a');
   l.insert('d');
   l.insert('e');
   l.insert('c');
-  l.insert('b');
+  l.insert('a');
 
   REQUIRE(l.getPosition('a') == 0);
-  REQUIRE(l.getPosition('b') == 1);
+  REQUIRE_FALSE(l.getPosition('a') == 1); // since getPosition() returns the position of the first instance of the character,
+                                          // getPosition() should NEVER return 1 for the list I built.
   REQUIRE(l.getPosition('c') == 2);
   REQUIRE(l.getPosition('d') == 3);
   REQUIRE(l.getPosition('e') == 4);
+
+  REQUIRE(l.getLength() == 5);
 }
