@@ -110,3 +110,18 @@ TEST_CASE("Testing init from list", "[sorted list]") {
 }
 
 /* Your tests here */
+TEST_CASE("Test: insert", "[sorted list]") {
+  SortedList<char> l;
+  
+  l.insert('a');
+  l.insert('d');
+  l.insert('e');
+  l.insert('c');
+  l.insert('b');
+
+  REQUIRE(l.getPosition('a') == 0);
+  REQUIRE(l.getPosition('b') == 1);
+  REQUIRE(l.getPosition('c') == 2);
+  REQUIRE(l.getPosition('d') == 3);
+  REQUIRE(l.getPosition('e') == 4);
+}

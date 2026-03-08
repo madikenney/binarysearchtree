@@ -88,6 +88,16 @@ T SortedList<T>::getEntry(std::size_t position) const
 template <typename T>
 std::size_t SortedList<T>::getPosition(const T& item)
 {
-  // TODO
-  return 0;
+  int position = -1;
+  for(int i=0; i<List<T>::getLength(); i++){
+    if(List<T>::getEntry(i) == item){
+      position = i;
+      break;
+    }
+  }
+  if(position == -1){
+    throw std::invalid_argument("Item not found!");
+  } else {
+    return position;
+  }
 }
