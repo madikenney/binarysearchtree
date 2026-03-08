@@ -1,0 +1,5 @@
+/Users/Macbook151/Desktop/ECE 0302/ECE0302-MBK81/sorted_list/build/CMakeFiles/test-sorted-list.dir
+/Users/Macbook151/Desktop/ECE 0302/ECE0302-MBK81/sorted_list/build/CMakeFiles/submission.dir
+/Users/Macbook151/Desktop/ECE 0302/ECE0302-MBK81/sorted_list/build/CMakeFiles/test.dir
+/Users/Macbook151/Desktop/ECE 0302/ECE0302-MBK81/sorted_list/build/CMakeFiles/edit_cache.dir
+/Users/Macbook151/Desktop/ECE 0302/ECE0302-MBK81/sorted_list/build/CMakeFiles/rebuild_cache.dir

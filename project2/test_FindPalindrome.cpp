@@ -79,3 +79,11 @@ TEST_CASE("Test toVector", "[FindPalindrome]"){
 	std::vector< std::vector<std::string> > a = {{"race","car"}};
 	REQUIRE(b.toVector() == a);
 }
+
+TEST_CASE("Checkoff!", "[FindPalindrome]"){
+	FindPalindrome c;
+	std::vector<std::string> a = {"ww", "bb", "a"};
+	std::vector<std::string> b = {"w", "b"};
+	
+	REQUIRE(c.cutTest2(a,b));
+}
