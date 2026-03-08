@@ -37,7 +37,6 @@ public:
 
 private:
 
-  std::size_t length;
   T* arr;
 
 };

@@ -49,16 +49,16 @@ std::size_t SortedList<T>::getLength() const noexcept
 template <typename T>
 void SortedList<T>::insert(const T& item)
 {
-  int position = 0;
-  for(int i=0; i<length; i++){
-    if(arr[i]<item){
-      i++;
-    } else {
-      position = i;
-      break;
-    }
+  if(List<T>::getLength() == 0){
+    List<T>::insert(0, item);
+    return;
   }
-  List<T>::insert(position, item);
+  
+  int i = 0;
+  while(i < List<T>::getLength() && List<T>::getEntry(i) < item){
+    i++;
+  }
+  List<T>::insert(i, item);
 }
 
 template <typename T>
