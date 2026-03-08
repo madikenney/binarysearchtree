@@ -64,7 +64,7 @@ void SortedList<T>::insert(const T& item)
 template <typename T>
 void SortedList<T>::remove(const T& item)
 {  
-  // TODO
+  List<T>::remove(SortedList<T>::getPosition(item));
 }
 
 template <typename T>
