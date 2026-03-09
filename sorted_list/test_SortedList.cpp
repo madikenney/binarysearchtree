@@ -128,3 +128,26 @@ TEST_CASE("Test: insert with duplicates", "[sorted list]") {
 
   REQUIRE(l.getLength() == 5);
 }
+
+TEST_CASE("Test: remove with duplicates", "[sorted list]") {
+  SortedList<char> l;
+  
+  l.insert('a');
+  l.insert('d');
+  l.insert('e');
+  l.insert('c');
+  l.insert('a');
+  REQUIRE(l.getLength() == 5);
+
+  l.remove('a');
+
+  REQUIRE(l.getPosition('a') == 0);
+  REQUIRE(l.getPosition('c') == 1);
+  REQUIRE(l.getPosition('d') == 2);
+  REQUIRE(l.getPosition('e') == 3);
+
+  REQUIRE(l.getLength() == 4);
+
+  // Test invalid removal
+  REQUIRE_THROWS_AS(l.remove('f'), std::invalid_argument);
+}
