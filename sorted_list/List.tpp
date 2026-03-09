@@ -79,7 +79,7 @@ template <typename T>
 void List<T>::remove(std::size_t position)
 {
   if(position >= length){
-    throw std::out_of_range("Out of bounds");
+    throw std::invalid_argument("Out of bounds");
   }
 
   T* newArr = new T[length-1];

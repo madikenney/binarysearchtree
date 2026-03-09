@@ -151,3 +151,26 @@ TEST_CASE("Test: remove with duplicates", "[sorted list]") {
   // Test invalid removal
   REQUIRE_THROWS_AS(l.remove('f'), std::invalid_argument);
 }
+
+TEST_CASE("Test: remove using position", "[sorted list]") {
+  SortedList<char> l;
+  
+  l.insert('a');
+  l.insert('d');
+  l.insert('e');
+  l.insert('c');
+  l.insert('a');
+  REQUIRE(l.getLength() == 5);
+
+  l.removeAt(1);
+
+  REQUIRE(l.getPosition('a') == 0);
+  REQUIRE(l.getPosition('c') == 1);
+  REQUIRE(l.getPosition('d') == 2);
+  REQUIRE(l.getPosition('e') == 3);
+
+  REQUIRE(l.getLength() == 4);
+
+  // Test invalid removal
+  REQUIRE_THROWS_AS(l.removeAt(5), std::invalid_argument);
+}

@@ -70,7 +70,7 @@ void SortedList<T>::remove(const T& item)
 template <typename T>
 void SortedList<T>::removeAt(std::size_t position)
 {  
-  // TODO
+  List<T>::remove(position);
 }
 
 template <typename T>
