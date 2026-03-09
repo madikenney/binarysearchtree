@@ -70,9 +70,6 @@ void SortedList<T>::remove(const T& item)
 template <typename T>
 void SortedList<T>::removeAt(std::size_t position)
 {  
-  if(position >= List<T>::getLength()){
-    throw std::invalid_argument("Out of bounds");
-  }
   List<T>::remove(position);
 }
 

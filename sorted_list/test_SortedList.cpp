@@ -172,5 +172,23 @@ TEST_CASE("Test: remove using position", "[sorted list]") {
   REQUIRE(l.getLength() == 4);
 
   // Test invalid removal
-  REQUIRE_THROWS_AS(l.removeAt(5), std::invalid_argument);
+  REQUIRE_THROWS_AS(l.removeAt(5), std::out_of_range);
+}
+
+TEST_CASE("Test: construct from list with duplicates", "[sorted list]") {
+  List<char> unsorted;
+  
+  unsorted.insert(0,'a');
+  unsorted.insert(1,'a');
+  unsorted.insert(2,'e');
+  unsorted.insert(3,'c');
+  unsorted.insert(4,'b');
+
+  SortedList<char> sorted(unsorted);
+
+  REQUIRE(sorted.getPosition('a') == 0);
+  REQUIRE(sorted.getPosition('a') == 0);
+  REQUIRE(sorted.getPosition('b') == 2);
+  REQUIRE(sorted.getPosition('c') == 3);
+  REQUIRE(sorted.getPosition('e') == 4);
 }
