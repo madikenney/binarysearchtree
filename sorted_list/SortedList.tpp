@@ -64,12 +64,15 @@ void SortedList<T>::insert(const T& item)
 template <typename T>
 void SortedList<T>::remove(const T& item)
 {  
-  List<T>::remove(SortedList<T>::getPosition(item));
+  List<T>::remove(getPosition(item));
 }
 
 template <typename T>
 void SortedList<T>::removeAt(std::size_t position)
 {  
+  if(position >= List<T>::getLength()){
+    throw std::invalid_argument("Out of bounds");
+  }
   List<T>::remove(position);
 }
 
