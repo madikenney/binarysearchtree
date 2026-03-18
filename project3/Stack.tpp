@@ -41,6 +41,9 @@ bool Stack<ItemType>::push(const ItemType& newItem)
 template<class ItemType>
 ItemType Stack<ItemType>::peek() const
 {
+	if(isEmpty()){
+		throw std::out_of_range("Stack is empty");
+	}	
 	return headPtr->getItem();
 }
 
@@ -60,11 +63,13 @@ template<class ItemType>
 void Stack<ItemType>::clear()
 {
 	Node<ItemType>* current = headPtr;
-    while(current != nullptr){
+    
+	while(current != nullptr){
         Node<ItemType>* nextNode = current->getNext();
         delete current;
         current = nextNode;
     }
+  
   headPtr = nullptr;
   currentSize = 0;
 }

@@ -173,3 +173,41 @@ TEST_CASE("XMLParser: Test XMLParser parse, contains and frequency", "[XMLParser
 }
 
 /* Your test cases here */
+TEST_CASE("Stack: Test push, pop, peek", "[XMLParser]"){
+	Stack<char> charStack;
+	REQUIRE(charStack.isEmpty());
+	
+	// TESTING PUSH
+	charStack.push('A');
+	charStack.push('B');
+	charStack.push('C');
+	REQUIRE(charStack.size() == 3);
+
+	// TESTING POP & PEEK
+	REQUIRE(charStack.peek() == 'C');
+	
+	charStack.pop();
+	REQUIRE(charStack.size() == 2);
+	REQUIRE(charStack.peek() == 'B');
+
+	charStack.pop();
+	REQUIRE(charStack.size() == 1);
+	REQUIRE(charStack.peek() == 'A');
+
+	charStack.pop();
+	REQUIRE_FALSE(charStack.pop());
+	REQUIRE(charStack.isEmpty());
+}
+
+TEST_CASE("Stack: Test clear", "[XMLParser]"){
+	Stack<char> charStack;
+
+	charStack.push('A');
+	charStack.push('B');
+	charStack.push('C');
+	REQUIRE(charStack.size() == 3);
+
+	charStack.clear();
+	REQUIRE(charStack.isEmpty());
+	REQUIRE_THROWS_AS(charStack.peek(),std::out_of_range);
+}
