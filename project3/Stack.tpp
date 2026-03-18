@@ -50,6 +50,13 @@ bool Stack<ItemType>::pop()
 template<class ItemType>
 void Stack<ItemType>::clear()
 {
-	// TODO
+	Node<ItemType>* current = headPtr;
+    while(current != nullptr){
+        Node<ItemType>* nextNode = current->getNext();
+        delete current;
+        current = nextNode;
+    }
+  headPtr = nullptr;
+  currentSize = 0;
 }
 
