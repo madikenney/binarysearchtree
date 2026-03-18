@@ -41,8 +41,7 @@ bool Stack<ItemType>::push(const ItemType& newItem)
 template<class ItemType>
 ItemType Stack<ItemType>::peek() const
 {
-	// TODO
-	return ItemType();
+	return headPtr->getItem();
 }
 
 template<class ItemType>
