@@ -47,8 +47,13 @@ ItemType Stack<ItemType>::peek() const
 template<class ItemType>
 bool Stack<ItemType>::pop() 
 {
-	// TODO
-	return false;
+	if(currentSize == 0){
+		return false;
+	}
+	headPtr = headPtr->getNext();
+	currentSize--;
+
+	return true;
 }
 
 template<class ItemType>
