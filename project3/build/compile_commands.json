@@ -1,0 +1,12 @@
+[
+{
+  "directory": "/Users/Macbook151/Desktop/ECE 0302/ECE0302-MBK81/project3/build",
+  "command": "/usr/bin/clang++   -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk -mmacosx-version-min=14.6 -std=gnu++11 -o CMakeFiles/test-XMLParser.dir/test_XMLParser.cpp.o -c \"/Users/Macbook151/Desktop/ECE 0302/ECE0302-MBK81/project3/test_XMLParser.cpp\"",
+  "file": "/Users/Macbook151/Desktop/ECE 0302/ECE0302-MBK81/project3/test_XMLParser.cpp"
+},
+{
+  "directory": "/Users/Macbook151/Desktop/ECE 0302/ECE0302-MBK81/project3/build",
+  "command": "/usr/bin/clang++   -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk -mmacosx-version-min=14.6 -std=gnu++11 -o CMakeFiles/test-XMLParser.dir/XMLParser.cpp.o -c \"/Users/Macbook151/Desktop/ECE 0302/ECE0302-MBK81/project3/XMLParser.cpp\"",
+  "file": "/Users/Macbook151/Desktop/ECE 0302/ECE0302-MBK81/project3/XMLParser.cpp"
+}
+]

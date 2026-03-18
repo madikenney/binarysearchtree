@@ -37,8 +37,6 @@ public:
 
 private:
 
-  T* arr;
-
 };
 
 #include "SortedList.tpp"
