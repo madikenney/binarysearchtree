@@ -12,7 +12,7 @@ Stack<ItemType>::Stack()
 template<class ItemType>
 Stack<ItemType>::~Stack()
 {
-	// TODO
+	clear();
 }
 
 template<class ItemType>
@@ -68,4 +68,3 @@ void Stack<ItemType>::clear()
   headPtr = nullptr;
   currentSize = 0;
 }
-
