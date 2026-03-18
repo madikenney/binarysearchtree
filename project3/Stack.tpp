@@ -5,7 +5,8 @@
 template<class ItemType>
 Stack<ItemType>::Stack() 
 {
-	// TODO
+	headPtr = nullptr;
+	currentSize = 0;
 } 
 
 template<class ItemType>
@@ -29,7 +30,11 @@ int Stack<ItemType>::size() const
 template<class ItemType>
 bool Stack<ItemType>::push(const ItemType& newItem)
 {
-	// TODO
+	Node<ItemType>* newNode = new Node<ItemType>(newItem);
+	newNode->setNext(headPtr);
+	headPtr = newNode;
+	currentSize++;
+
 	return true;
 }
 
