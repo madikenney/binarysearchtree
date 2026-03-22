@@ -2,12 +2,38 @@
 
 XMLParser::XMLParser()
 {
-	// TODO
+	tokenizedInputVector.clear();
 } 
 
 bool XMLParser::tokenizeInputString(const std::string &inputString)
 {
-	// TODO
+	if(inputString.length() == 0){
+		return false;
+	}
+
+	int i = 0;
+	while(i < inputString.length()) {
+		// Case 1: < (start of tag)
+		if(inputString[i] == '<'){
+			// find closing >
+			int end = inputString.find('>', i); // starting at index i
+
+			if(end == std::string::npos){
+				return false; // no closing > found
+			}
+
+			// find content of < >
+			std::string content = inputString.substr(i+1, end-i-1);
+
+			if(content.length() == 0){
+				return false; // case: empty content
+			} else if(content.find('<') != std::string::npos){
+				return false; // case: nested tags
+			}
+
+		}
+	}
+
 	return false;
 } 
 
