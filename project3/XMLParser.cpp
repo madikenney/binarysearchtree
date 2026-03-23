@@ -176,16 +176,28 @@ bool XMLParser::parseTokenizedInput()
 
 				break;
 			case EMPTY_TAG:
+				if(endRoot){
+					return false; //case: finished root
+				}
+			
+				elementNameBag.add(token.tokenString);
+
 				break;
 			case CONTENT:
+				if(parseStack.isEmpty()){
+					return false;
+				}
+
 				break;
 			case DECLARATION:
+				if(startRoot){
+					return false;
+				}
 				break;
 		}
 	}
 
-
-	return false;
+	return true;
 }
 
 void XMLParser::clear()
