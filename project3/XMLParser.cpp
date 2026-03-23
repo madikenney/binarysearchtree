@@ -46,10 +46,19 @@ bool XMLParser::tokenizeInputString(const std::string &inputString)
 					token.tokenString = content.substr(1);
 				}
 			} 
+			// end tag
 			else if(content[0] == '/'){
 				std::string inside = content.substr(1);
 
+				if(inside.find(' ') != std::string::npos){
+					return false;
+				}
+
 				if(inside.length() == 0 || isspace(inside[0])){
+					return false;
+				}
+
+				if(inside.back() == '/'){
 					return false;
 				}
 
@@ -197,7 +206,7 @@ bool XMLParser::parseTokenizedInput()
 		}
 	}
 
-	return true;
+	return parseStack.isEmpty() && startRoot && endRoot;
 }
 
 void XMLParser::clear()
@@ -214,11 +223,19 @@ std::vector<TokenStruct> XMLParser::returnTokenizedInput() const
 
 bool XMLParser::containsElementName(const std::string &inputString) const
 {
+	if(tokenizedInputVector.empty() || elementNameBag.isEmpty()){
+		throw std::logic_error("Not parsed.");
+	}
+	
 	return elementNameBag.contains(inputString);
 }
 
 int XMLParser::frequencyElementName(const std::string &inputString) const
 {
+	if(tokenizedInputVector.empty() || elementNameBag.isEmpty()){
+		throw std::logic_error("Not parsed.");
+	}
+
 	return elementNameBag.getFrequencyOf(inputString);
 }
 
