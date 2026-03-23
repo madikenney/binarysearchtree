@@ -214,13 +214,11 @@ std::vector<TokenStruct> XMLParser::returnTokenizedInput() const
 
 bool XMLParser::containsElementName(const std::string &inputString) const
 {
-	// TODO
-	return false;
+	return elementNameBag.contains(inputString);
 }
 
 int XMLParser::frequencyElementName(const std::string &inputString) const
 {
-	// TODO
-	return -1;
+	return elementNameBag.getFrequencyOf(inputString);
 }
 
