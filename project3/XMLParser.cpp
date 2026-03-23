@@ -147,30 +147,30 @@ bool XMLParser::parseTokenizedInput()
 	// bools to track if start/end of tags is reached
 	bool startRoot = false;
 	bool endRoot = false;
+	int count = 0;
 
 	for(int i=0; i<tokenizedInputVector.size(); i++){
 		TokenStruct token = tokenizedInputVector[i];
 
 		switch(token.tokenType){
 			case START_TAG:
-				if(endRoot){
-					return false; // case: finished root
+				if(parseStack.isEmpty()){
+					count++;
+					if(count > 1){
+						return false;
+					}
+					startRoot = true;
 				}
 
 				parseStack.push(token.tokenString);
 				elementNameBag.add(token.tokenString);
-
-				if(!startRoot){
-					startRoot = true; // case: first start tag
-				}
-
 				break;
 			case END_TAG:
 				// check for open tag
 				if(parseStack.isEmpty()){
 					return false;
 				}
-				
+
 				// check if closing tag matches open tag
 				if(parseStack.peek() != token.tokenString){
 					return false;
@@ -182,21 +182,21 @@ bool XMLParser::parseTokenizedInput()
 				if(parseStack.isEmpty()){
 					endRoot = true;
 				}
-
 				break;
 			case EMPTY_TAG:
-				if(endRoot){
-					return false; //case: finished root
+				if(parseStack.isEmpty()){
+					count++;
+					if(count > 1){
+						return false;
+					}
 				}
 			
 				elementNameBag.add(token.tokenString);
-
 				break;
 			case CONTENT:
 				if(parseStack.isEmpty()){
 					return false;
 				}
-
 				break;
 			case DECLARATION:
 				if(startRoot){
@@ -206,7 +206,7 @@ bool XMLParser::parseTokenizedInput()
 		}
 	}
 
-	return parseStack.isEmpty() && startRoot && endRoot;
+	return parseStack.isEmpty() && count==1;
 }
 
 void XMLParser::clear()
