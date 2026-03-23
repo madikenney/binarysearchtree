@@ -7,6 +7,8 @@ XMLParser::XMLParser()
 
 bool XMLParser::tokenizeInputString(const std::string &inputString)
 {
+	tokenizedInputVector.clear();
+	
 	if(inputString.length() == 0){
 		return false;
 	}
@@ -28,7 +30,8 @@ bool XMLParser::tokenizeInputString(const std::string &inputString)
 			// invalid content cases
 			if(content.length() == 0){
 				return false; // case: empty content
-			} else if(content.find('<') != std::string::npos){
+			}
+			if(content.find('<') != std::string::npos){
 				return false; // case: nested tags
 			}
 
@@ -37,15 +40,16 @@ bool XMLParser::tokenizeInputString(const std::string &inputString)
 			// declaration
 			if(content[0] == '?'){
 				token.tokenType = DECLARATION;
-				token.tokenString = content;
+				if(content.back() == '?'){
+					token.tokenString = content.substr(1, content.length() - 2);
+				} else{
+					token.tokenString = content.substr(1);
+				}
 			} 
 			else if(content[0] == '/'){
 				std::string inside = content.substr(1);
 
-				if(inside.length() == 0){
-					return false;
-				}
-				if(isspace(inside[0])){
+				if(inside.length() == 0 || isspace(inside[0])){
 					return false;
 				}
 
@@ -61,7 +65,7 @@ bool XMLParser::tokenizeInputString(const std::string &inputString)
 					inside = inside.substr(0,space);
 				}
 
-				if(inside.length() == 0){
+				if(inside.length() == 0 || isspace(inside[0])){
 					return false;
 				}
 
@@ -76,7 +80,7 @@ bool XMLParser::tokenizeInputString(const std::string &inputString)
 				if(space != std::string::npos){
 					inside = inside.substr(0,space);
 				}
-				if(inside.length() == 0){
+				if(inside.length() == 0 || isspace(inside[0])){
 					return false;
 				}
 
@@ -100,7 +104,15 @@ bool XMLParser::tokenizeInputString(const std::string &inputString)
 				i = next;
 			}
 
-			if(content.length() != 0){
+			bool empty = true;
+			for(int i=0; i<content.length(); i++){
+				if(!isspace(content[i])){
+					empty = false;
+					break;
+				}
+			}
+
+			if(content.length() != 0 && !empty){
 				TokenStruct token;
 				token.tokenType = CONTENT;
 				token.tokenString = content;
