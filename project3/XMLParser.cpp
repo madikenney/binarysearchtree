@@ -31,6 +31,8 @@ bool XMLParser::tokenizeInputString(const std::string &inputString)
 				return false; // case: nested tags
 			}
 
+
+			
 		}
 	}
 
