@@ -135,20 +135,52 @@ bool XMLParser::parseTokenizedInput()
 	parseStack.clear();
 	elementNameBag.clear();
 
+	// bools to track if start/end of tags is reached
+	bool startRoot = false;
+	bool endRoot = false;
+
 	for(int i=0; i<tokenizedInputVector.size(); i++){
 		TokenStruct token = tokenizedInputVector[i];
 
 		switch(token.tokenType){
 			case START_TAG:
+				if(endRoot){
+					return false; // case: finished root
+				}
 
+				parseStack.push(token.tokenString);
+				elementNameBag.add(token.tokenString);
+
+				if(!startRoot){
+					startRoot = true; // case: first start tag
+				}
+
+				break;
 			case END_TAG:
+				// check for open tag
+				if(parseStack.isEmpty()){
+					return false;
+				}
+				
+				// check if closing tag matches open tag
+				if(parseStack.peek() != token.tokenString){
+					return false;
+				}
 
+				parseStack.pop();
+
+				// if nothing left, root has been closed
+				if(parseStack.isEmpty()){
+					endRoot = true;
+				}
+
+				break;
 			case EMPTY_TAG:
-
+				break;
 			case CONTENT:
-
+				break;
 			case DECLARATION:
-
+				break;
 		}
 	}
 
