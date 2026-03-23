@@ -202,7 +202,9 @@ bool XMLParser::parseTokenizedInput()
 
 void XMLParser::clear()
 {
-	// TODO
+	tokenizedInputVector.clear();
+	parseStack.clear();
+	elementNameBag.clear();
 }
 
 std::vector<TokenStruct> XMLParser::returnTokenizedInput() const
