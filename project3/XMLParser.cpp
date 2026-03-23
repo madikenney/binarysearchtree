@@ -126,12 +126,32 @@ bool XMLParser::tokenizeInputString(const std::string &inputString)
 
 bool XMLParser::parseTokenizedInput()
 {
+	// return false if no tokens
 	if(tokenizedInputVector.empty()){
 		return false;
 	}
 
+	// clear previous parses
 	parseStack.clear();
 	elementNameBag.clear();
+
+	for(int i=0; i<tokenizedInputVector.size(); i++){
+		TokenStruct token = tokenizedInputVector[i];
+
+		switch(token.tokenType){
+			case START_TAG:
+
+			case END_TAG:
+
+			case EMPTY_TAG:
+
+			case CONTENT:
+
+			case DECLARATION:
+
+		}
+	}
+
 
 	return false;
 }
