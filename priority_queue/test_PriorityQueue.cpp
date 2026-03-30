@@ -122,7 +122,7 @@ TEST_CASE("Priority: Testing Priority Queue Add and isEmpty", "[priority queue]"
 
 /* Your test cases here */
 
-TEST_CASE("Testing sorted list", "[priority queue]") {
+TEST_CASE("Testing sorted list, duplicates", "[priority queue]") {
   SortedList< int, List<int> >  sort;
 
   REQUIRE(sort.isEmpty());
@@ -135,15 +135,27 @@ TEST_CASE("Testing sorted list", "[priority queue]") {
 
   sort.insert(2);
   REQUIRE(sort.getLength() == 2);
-  REQUIRE(sort.getEntry(0) == 2);
-  REQUIRE(sort.getEntry(1) == 1);
+  REQUIRE(sort.getEntry(0) == 1);
+  REQUIRE(sort.getEntry(1) == 2);
 
-  sort.insert(8);
+  sort.insert(2);
   REQUIRE(sort.getLength() == 3);
-  sort.insert(6);
-  REQUIRE(sort.getLength() == 4);
-  sort.insert(9);
-  REQUIRE(sort.getLength() == 5);
-  sort.insert(0);
-  REQUIRE(sort.getLength() == 6);
+  REQUIRE(sort.getEntry(0) == 1);
+  REQUIRE(sort.getEntry(1) == 2); 
+  REQUIRE(sort.getEntry(2) == 2);
+}
+
+TEST_CASE("Testing sorted list, remove invalid", "[priority queue]") {
+  SortedList< int, List<int> >  sort;
+
+  REQUIRE(sort.isEmpty());
+  REQUIRE(sort.getLength() == 0);
+  sort.insert(1);
+  sort.insert(2);
+  sort.insert(3);
+
+  REQUIRE_THROWS_AS(sort.remove(4), std::invalid_argument);
+
+  sort.remove(2);
+  REQUIRE_THROWS_AS(sort.remove(2), std::invalid_argument);
 }
