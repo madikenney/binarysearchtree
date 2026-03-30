@@ -39,7 +39,8 @@ public:
 
 private:
 
-  //TODO
+  std::size_t length;
+  T* arr;
   
 };
 
