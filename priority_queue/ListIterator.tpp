@@ -4,7 +4,8 @@
 template <typename T>
 inline ListIterator<T>::ListIterator(List<T> *listPtr, T *itemPtr)
 {
-    // TODO
+    list = listPtr;
+    current = itemPtr;
 }
 
 template <typename T>
