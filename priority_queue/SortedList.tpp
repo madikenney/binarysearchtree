@@ -42,16 +42,13 @@ void SortedList<T, L>::insert(const T& item)
 {
   // TODO
   // Must use range-based for loop syntax!!
-  if(plist.getLength() == 0){
-    plist.insert(0, item);
-    return;
-  }
-
   int i = 0;
 
-  for(T item : plist){
-    if(plist.getEntry(i) < item){
+  for(T current : plist){
+    if(current < item){
       i++;
+    } else {
+      break;
     }
   }
 
@@ -89,19 +86,13 @@ std::size_t SortedList<T, L>::getPosition(const T& newValue)
 {
   // TODO
   // Must use range-based for loop syntax
-
-  int position = -1;
   int i = 0;
-  for(T item : plist){
-    if(plist.getEntry(i) == newValue){
-      position = i;
-      break;
+  for(T current : plist){
+    if(current == newValue){
+      return i;
     }
+    i++;
   }
-  if(position == -1){
-    throw std::invalid_argument("Item not found!");
-  } else {
-    return position;
-  }
-  return 0;
+  
+  throw std::invalid_argument("Item not found!");
 }

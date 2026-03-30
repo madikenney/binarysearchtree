@@ -122,12 +122,28 @@ TEST_CASE("Priority: Testing Priority Queue Add and isEmpty", "[priority queue]"
 
 /* Your test cases here */
 
-TEST_CASE("Testing queue", "[priority queue]") {
-  PriorityQueueType pq;
+TEST_CASE("Testing sorted list", "[priority queue]") {
+  SortedList< int, List<int> >  sort;
 
-  REQUIRE(pq.isEmpty());
+  REQUIRE(sort.isEmpty());
+  REQUIRE(sort.getLength() == 0);
 
-  pq.add(3);
+  sort.insert(1);
+  REQUIRE_FALSE(sort.isEmpty());
+  REQUIRE(sort.getLength() == 1);
+  REQUIRE(sort.getEntry(0) == 1);
 
-  REQUIRE_FALSE(pq.isEmpty());
+  sort.insert(2);
+  REQUIRE(sort.getLength() == 2);
+  REQUIRE(sort.getEntry(0) == 2);
+  REQUIRE(sort.getEntry(1) == 1);
+
+  sort.insert(8);
+  REQUIRE(sort.getLength() == 3);
+  sort.insert(6);
+  REQUIRE(sort.getLength() == 4);
+  sort.insert(9);
+  REQUIRE(sort.getLength() == 5);
+  sort.insert(0);
+  REQUIRE(sort.getLength() == 6);
 }
