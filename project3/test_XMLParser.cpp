@@ -211,3 +211,32 @@ TEST_CASE("Stack: Test clear", "[XMLParser]"){
 	REQUIRE(charStack.isEmpty());
 	REQUIRE_THROWS_AS(charStack.peek(),std::out_of_range);
 }
+
+TEST_CASE("XMLParser: Test invalid inputs", "[XMLParser]")
+{
+	XMLParser myXMLParser;
+	std::string testString = "<>";
+	REQUIRE_FALSE(myXMLParser.tokenizeInputString(testString));
+
+	testString = "<test>stuff</test/>";
+	REQUIRE_FALSE(myXMLParser.tokenizeInputString(testString));
+
+	testString = "<start";
+	REQUIRE_FALSE(myXMLParser.tokenizeInputString(testString));
+}
+
+TEST_CASE("XMLParser: Test true tokenize, false parse", "[XMLParser]")
+{
+	XMLParser myXMLParser;
+	std::string testString = "<onetag>";
+	REQUIRE(myXMLParser.tokenizeInputString(testString));
+	REQUIRE_FALSE(myXMLParser.parseTokenizedInput());
+
+	testString = " just some content";
+	REQUIRE(myXMLParser.tokenizeInputString(testString));
+	REQUIRE_FALSE(myXMLParser.parseTokenizedInput());
+
+	testString = "</test>stuff<test>";
+	REQUIRE(myXMLParser.tokenizeInputString(testString));
+	REQUIRE_FALSE(myXMLParser.parseTokenizedInput());
+}

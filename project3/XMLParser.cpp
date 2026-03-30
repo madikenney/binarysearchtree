@@ -102,32 +102,27 @@ bool XMLParser::tokenizeInputString(const std::string &inputString)
 		} 
 		// case 2: content
 		else {
-			int next = inputString.find('<', i);
-			std::string content;
+            // content outside tags
+            int next = inputString.find('<', i);
+            std::string content = (next == std::string::npos) ? inputString.substr(i)
+                                                              : inputString.substr(i, next - i);
+            i = (next == std::string::npos) ? inputString.size() : next;
 
-			if(next == std::string::npos){
-				content = inputString.substr(i);
-				i = inputString.length();
-			} else {
-				content = inputString.substr(i, next - i);
-				i = next;
-			}
-
-			bool empty = true;
-			for(int i=0; i<content.length(); i++){
-				if(!isspace(content[i])){
-					empty = false;
-					break;
-				}
-			}
-
-			if(content.length() != 0 && !empty){
-				TokenStruct token;
-				token.tokenType = CONTENT;
-				token.tokenString = content;
-				tokenizedInputVector.push_back(token);
-			}
-		}
+            // skip whitespace-only content
+            bool hasNonSpace = false;
+            for(char c : content){
+                if(!isspace(c)){
+                    hasNonSpace = true;
+                    break;
+                }
+            }
+            if(hasNonSpace){
+                TokenStruct token;
+                token.tokenType = CONTENT;
+                token.tokenString = content;
+                tokenizedInputVector.push_back(token);
+            }
+        }
 	}
 
 	return true;
@@ -238,4 +233,3 @@ int XMLParser::frequencyElementName(const std::string &inputString) const
 
 	return elementNameBag.getFrequencyOf(inputString);
 }
-
