@@ -122,3 +122,12 @@ TEST_CASE("Priority: Testing Priority Queue Add and isEmpty", "[priority queue]"
 
 /* Your test cases here */
 
+TEST_CASE("Testing queue", "[priority queue]") {
+  PriorityQueueType pq;
+
+  REQUIRE(pq.isEmpty());
+
+  pq.add(3);
+
+  REQUIRE_FALSE(pq.isEmpty());
+}
