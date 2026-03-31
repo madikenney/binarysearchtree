@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/Users/Macbook151/Desktop/ECE 0302/ECE0302-MBK81/binary_search_tree/build",
+  "command": "/usr/bin/clang++   -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk -mmacosx-version-min=14.6 -std=gnu++11 -o CMakeFiles/test-bst.dir/test_BinarySearchTree.cpp.o -c \"/Users/Macbook151/Desktop/ECE 0302/ECE0302-MBK81/binary_search_tree/test_BinarySearchTree.cpp\"",
+  "file": "/Users/Macbook151/Desktop/ECE 0302/ECE0302-MBK81/binary_search_tree/test_BinarySearchTree.cpp"
+}
+]
