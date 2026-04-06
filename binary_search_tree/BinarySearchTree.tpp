@@ -116,6 +116,17 @@ bool BinarySearchTree<KeyType, ItemType>::insert(
     }
 
     // Case 3: New leaf!
+    Node<KeyType, ItemType>* newNode = new Node<KeyType, ItemType>;
+    newNode->key = key;
+    newNode->data = item;
+    newNode->left = nullptr;
+    newNode->right = nullptr;
+
+    if(key < curr->key){
+        curr->left = newNode;
+    } else {
+        curr->right = newNode;
+    }
 
     return false;
 }
