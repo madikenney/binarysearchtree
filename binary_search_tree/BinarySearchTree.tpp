@@ -106,6 +106,17 @@ bool BinarySearchTree<KeyType, ItemType>::insert(
         root->right = nullptr;
         return true;
     }
+
+    Node<KeyType, ItemType>* curr;
+    Node<KeyType, ItemType>* curr_parent;
+
+    // Case 2: Duplicate found, cannot add
+    if(search(key, curr, curr_parent)){
+        return false;
+    }
+
+    // Case 3: New leaf!
+
     return false;
 }
 
