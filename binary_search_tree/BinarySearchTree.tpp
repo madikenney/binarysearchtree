@@ -97,7 +97,15 @@ template <typename KeyType, typename ItemType>
 bool BinarySearchTree<KeyType, ItemType>::insert(
     const KeyType& key, const ItemType& item)
 {
-    // TODO 
+    // Case 1: Empty Tree
+    if(isEmpty()){
+        root = new Node<KeyType, ItemType>;
+        root->key = key;
+        root->data = item;
+        root->left = nullptr;
+        root->right = nullptr;
+        return true;
+    }
     return false;
 }
 
