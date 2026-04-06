@@ -188,8 +188,8 @@ bool BinarySearchTree<KeyType, ItemType>::remove(KeyType key)
 
     // case, item to delete has only a right child
     if(curr->left == nullptr && curr->right!=nullptr){
-        if(curr_parent == nullptr){     // current is the root
-            root = curr->right;
+        if(curr_parent == nullptr){             // current is the root
+            root = curr->right;                 // curent's child moves into root place
         } else if(curr_parent->left == curr){   // current is the left child
             curr_parent->left = curr->right;    // current's child moves into the left place
         } else {
@@ -199,8 +199,18 @@ bool BinarySearchTree<KeyType, ItemType>::remove(KeyType key)
         return true;
     }
 
-
     // case, item to delete has only a left child
+    if(curr->right == nullptr && curr->left!=nullptr){
+        if(curr_parent == nullptr){
+            root = curr->left;
+        } else if(curr_parent->left == curr){
+            curr_parent->left = curr->left;
+        } else {
+            curr_parent->right = curr->left;
+        }
+        delete curr;
+        return true;
+    }
 
     // case, item to delete has two children
 
