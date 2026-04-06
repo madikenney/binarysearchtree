@@ -213,7 +213,25 @@ bool BinarySearchTree<KeyType, ItemType>::remove(KeyType key)
     }
 
     // case, item to delete has two children
+    if(curr->left!=nullptr && curr->right!=nullptr){
+        Node<KeyType,ItemType>* inorder;
+        Node<KeyType,ItemType>* inorder_parent;
 
+        inorder_successor(curr, inorder, inorder_parent);
+
+        // copy inorder successor to current
+        curr->key = inorder->key;
+        curr->data = inorder->data;
+
+        // remove successor (determine where successor is with respect to parent)
+        if(inorder_parent->left == inorder){
+            inorder_parent->left = inorder->right;
+        } else {
+            inorder_parent->right = inorder->right;
+        }
+        delete inorder;
+        return true;
+    }
     return false; 
 }
 

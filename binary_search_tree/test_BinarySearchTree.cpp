@@ -75,3 +75,47 @@ TEST_CASE("BST: Test Copy Assign", "[copy assign]") {
 }
 
 /* Your test cases here */
+TEST_CASE("BST: Test Remove from empty tree", "[duplicate insert]") {
+    BinarySearchTree<int, int> bst1;
+    
+    REQUIRE_FALSE(bst1.remove(10));
+}
+
+TEST_CASE("BST: Test invalid removal", "[duplicate insert]") {
+    BinarySearchTree<int, int> bst1;
+    bst1.insert(10, 10);
+    bst1.insert(5, 5);
+    bst1.insert(15, 15);
+
+    REQUIRE_FALSE(bst1.remove(2));
+}
+
+TEST_CASE("BST: Test remove with one leaf", "[duplicate insert]") {
+    BinarySearchTree<int, int> bst1;
+    bst1.insert(10, 10);
+    bst1.insert(5, 5);
+
+    REQUIRE(bst1.remove(10));
+
+    int item;
+    REQUIRE_FALSE(bst1.retrieve(10, item));
+    REQUIRE(bst1.retrieve(5,item));
+}
+
+TEST_CASE("BST: Test remove with two leaves", "[duplicate insert]") {
+    BinarySearchTree<int, int> bst1;
+    bst1.insert(20, 20);
+    bst1.insert(10, 10);
+    bst1.insert(30, 30);
+    bst1.insert(5, 5);
+    bst1.insert(15, 15);
+
+    REQUIRE(bst1.remove(10));
+
+    int item;
+    REQUIRE_FALSE(bst1.retrieve(10, item));
+    REQUIRE(bst1.retrieve(5,item));
+    REQUIRE(bst1.retrieve(15,item));
+    REQUIRE(bst1.retrieve(20,item));
+    REQUIRE(bst1.retrieve(30,item));
+}
