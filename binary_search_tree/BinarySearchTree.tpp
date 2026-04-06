@@ -128,7 +128,7 @@ bool BinarySearchTree<KeyType, ItemType>::insert(
         curr->right = newNode;
     }
 
-    return false;
+    return true;
 }
 
 template <typename KeyType, typename ItemType>

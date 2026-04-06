@@ -11,7 +11,7 @@ TEST_CASE("BST: Test Insert", "[insert]") {
 
     REQUIRE(bst1.isEmpty());
 
-    bst1.insert(10, 10);
+    REQUIRE(bst1.insert(10, 10)); // Added a REQUIRE to this insert statement so tests for valid insertion
     REQUIRE_FALSE(bst1.isEmpty());
 }
 
