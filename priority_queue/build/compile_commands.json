@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/Users/Macbook151/Desktop/ECE 0302/ECE0302-MBK81/priority_queue/build",
+  "command": "/usr/bin/clang++   -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk -mmacosx-version-min=14.6 -std=gnu++11 -o CMakeFiles/test-priority-queue.dir/test_PriorityQueue.cpp.o -c \"/Users/Macbook151/Desktop/ECE 0302/ECE0302-MBK81/priority_queue/test_PriorityQueue.cpp\"",
+  "file": "/Users/Macbook151/Desktop/ECE 0302/ECE0302-MBK81/priority_queue/test_PriorityQueue.cpp"
+}
+]
