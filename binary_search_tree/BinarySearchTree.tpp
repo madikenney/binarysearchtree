@@ -160,9 +160,20 @@ bool BinarySearchTree<KeyType, ItemType>::remove(KeyType key)
         return false; // empty tree
 
     // TODO
+    Node<KeyType, ItemType>* curr;
+    Node<KeyType, ItemType>* curr_parent;
 
+    // Key not found
+    if(!search(key, curr, curr_parent)){
+        return false;
+    }
 
     // case one thing in the tree
+    if(curr == root && curr->left == nullptr && curr->right == nullptr){
+        delete curr;
+        root = nullptr;
+        return true;
+    }
 
     // case, found deleted item at leaf
 
