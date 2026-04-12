@@ -1,0 +1,32 @@
+[
+{
+  "directory": "/Users/Macbook151/Desktop/ECE 0302/ECE0302-MBK81/project4/build",
+  "command": "/usr/bin/clang++  -I\"/Users/Macbook151/Desktop/ECE 0302/ECE0302-MBK81/project4/lib\" -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk -mmacosx-version-min=14.6 -std=gnu++11 -o CMakeFiles/compare.dir/compare.cpp.o -c \"/Users/Macbook151/Desktop/ECE 0302/ECE0302-MBK81/project4/compare.cpp\"",
+  "file": "/Users/Macbook151/Desktop/ECE 0302/ECE0302-MBK81/project4/compare.cpp"
+},
+{
+  "directory": "/Users/Macbook151/Desktop/ECE 0302/ECE0302-MBK81/project4/build",
+  "command": "/usr/bin/clang++  -I\"/Users/Macbook151/Desktop/ECE 0302/ECE0302-MBK81/project4/lib\" -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk -mmacosx-version-min=14.6 -std=gnu++11 -o CMakeFiles/test-queue.dir/test_Queue.cpp.o -c \"/Users/Macbook151/Desktop/ECE 0302/ECE0302-MBK81/project4/test_Queue.cpp\"",
+  "file": "/Users/Macbook151/Desktop/ECE 0302/ECE0302-MBK81/project4/test_Queue.cpp"
+},
+{
+  "directory": "/Users/Macbook151/Desktop/ECE 0302/ECE0302-MBK81/project4/build",
+  "command": "/usr/bin/clang++  -I\"/Users/Macbook151/Desktop/ECE 0302/ECE0302-MBK81/project4/lib\" -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk -mmacosx-version-min=14.6 -std=gnu++11 -o CMakeFiles/pathfinder.dir/pathfinder.cpp.o -c \"/Users/Macbook151/Desktop/ECE 0302/ECE0302-MBK81/project4/pathfinder.cpp\"",
+  "file": "/Users/Macbook151/Desktop/ECE 0302/ECE0302-MBK81/project4/pathfinder.cpp"
+},
+{
+  "directory": "/Users/Macbook151/Desktop/ECE 0302/ECE0302-MBK81/project4/build/lib",
+  "command": "/usr/bin/clang++  -I/lib -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk -mmacosx-version-min=14.6 -std=gnu++11 -o CMakeFiles/image.dir/Image.cpp.o -c \"/Users/Macbook151/Desktop/ECE 0302/ECE0302-MBK81/project4/lib/Image.cpp\"",
+  "file": "/Users/Macbook151/Desktop/ECE 0302/ECE0302-MBK81/project4/lib/Image.cpp"
+},
+{
+  "directory": "/Users/Macbook151/Desktop/ECE 0302/ECE0302-MBK81/project4/build/lib",
+  "command": "/usr/bin/clang++  -I/lib -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk -mmacosx-version-min=14.6 -std=gnu++11 -o CMakeFiles/image.dir/lodepng.cpp.o -c \"/Users/Macbook151/Desktop/ECE 0302/ECE0302-MBK81/project4/lib/lodepng.cpp\"",
+  "file": "/Users/Macbook151/Desktop/ECE 0302/ECE0302-MBK81/project4/lib/lodepng.cpp"
+},
+{
+  "directory": "/Users/Macbook151/Desktop/ECE 0302/ECE0302-MBK81/project4/build/lib",
+  "command": "/usr/bin/clang++  -I/lib -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk -mmacosx-version-min=14.6 -std=gnu++11 -o CMakeFiles/test-image.dir/test_Image.cpp.o -c \"/Users/Macbook151/Desktop/ECE 0302/ECE0302-MBK81/project4/lib/test_Image.cpp\"",
+  "file": "/Users/Macbook151/Desktop/ECE 0302/ECE0302-MBK81/project4/lib/test_Image.cpp"
+}
+]
