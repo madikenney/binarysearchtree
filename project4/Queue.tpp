@@ -9,14 +9,13 @@ void Queue<T,L>::enqueue(const T& item)
 template <typename T, typename L>
 void Queue<T,L>::dequeue()
 {
-  // TODO
+  internal_list.remove(internal_list.getLength()-1);
 }
 
 template <typename T, typename L>
 T Queue<T,L>::peekFront() const
 {
-  // TODO
-  return T();
+  return internal_list.getEntry(0);
 }
 
 template <typename T, typename L>
