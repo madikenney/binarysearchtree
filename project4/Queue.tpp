@@ -9,7 +9,7 @@ void Queue<T,L>::enqueue(const T& item)
 template <typename T, typename L>
 void Queue<T,L>::dequeue()
 {
-  internal_list.remove(internal_list.getLength()-1);
+  internal_list.remove(0);
 }
 
 template <typename T, typename L>
