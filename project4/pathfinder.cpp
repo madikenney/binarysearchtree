@@ -52,15 +52,17 @@ int main(int argc, char *argv[])
   }
 
   // TODO: breadth-first search
+  // Setup BFS
   Queue<State, List<State>> frontier; // Queue of states to be explored
   std::vector<std::vector<bool>> explored(rows, std::vector<bool>(cols, false));  // 2D vector of bools size rowxcol to keep track of explored states
   
   frontier.enqueue(start);
-  explored[start.row][start.col] = true;  // start = visited
+  explored[start.row][start.col] = true;
 
   bool found = false;
   State goal;
 
+  // Continue checks until all possibilities explored
   while(!frontier.isEmpty()){
     // Get next state
     State curr = frontier.peekFront();
@@ -94,11 +96,14 @@ int main(int argc, char *argv[])
       int new_row = curr_row + row_move[i];
       int new_col = curr_col + col_move[i];
 
+      // Boolean flags for neighbor validity checks
       bool in_row_bound = new_row >= 0 && new_row < rows;
       bool in_col_bound = new_col >= 0 && new_col < cols;
 
       if(in_row_bound && in_col_bound){
+        // Check if unexplored and valid color
         if(!explored[new_row][new_col] && image(new_row, new_col) != BLACK){
+          // Mark as explored and add to the frontier queue
           explored[new_row][new_col] = true;
           frontier.enqueue({new_row, new_col});
         }
@@ -111,7 +116,7 @@ int main(int argc, char *argv[])
     image(goal.row, goal.col) = GREEN;
     std::cout << "Solution Found";
   } else {
-    std::cout << "No Solution Found...";
+    std::cout << "No Solution Found";
   }
 
   writeToFile(image, output_file);
