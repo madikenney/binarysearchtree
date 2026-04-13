@@ -52,6 +52,12 @@ int main(int argc, char *argv[])
   }
 
   // TODO: breadth-first search
+  Queue<State, List<State>> frontier; // Queue of states to be explored
+  std::vector<std::vector<bool>> explored(rows, std::vector<bool>(cols, false));  // 2D vector of bools size rowxcol to keep track of explored states
+  
+  frontier.enqueue(start);
+  explored[start.row][start.col] = true;  // start = visited
+
   
 
   // TODO: Write solution image to file
