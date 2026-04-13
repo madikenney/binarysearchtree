@@ -39,7 +39,7 @@ int main(int argc, char *argv[])
       if(image(i, j) == RED){
         start = {i, j};
         startCount++;
-      } else if(image(i, j) != WHITE || image(i,j) != BLACK){
+      } else if(image(i, j) != WHITE && image(i,j) != BLACK){
         return EXIT_FAILURE;  // pixel is invalid color
       }
     }
