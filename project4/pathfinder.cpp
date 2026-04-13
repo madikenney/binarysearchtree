@@ -86,5 +86,14 @@ int main(int argc, char *argv[])
   }
 
   // TODO: Write solution image to file
-  
+  if(found){
+    image(goal.row, goal.col) == GREEN;
+    std::cout << "Solution Found!";
+  } else {
+    std::cout << "No Solution Found...";
+  }
+
+  writeToFile(image, output_file);
+
+  return EXIT_SUCCESS;
 }
