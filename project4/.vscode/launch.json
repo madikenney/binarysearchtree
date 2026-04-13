@@ -1,0 +1,19 @@
+{
+
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "(lldb) Launch",
+            "type": "cppdbg",
+            "request": "launch",
+            "program" : "${command:cmake.launchTargetPath}",
+            "args": ["tests/maze00.png", "my_output00.png"],
+            "cwd": "${workspaceFolder}",
+            "stopAtEntry": false,
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "lldb"
+        },
+    ]
+    
+}

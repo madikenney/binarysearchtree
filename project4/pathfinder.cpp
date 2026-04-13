@@ -74,7 +74,7 @@ int main(int argc, char *argv[])
     bool isBorder = (curr_row == 0 || curr_row == rows-1) || 
                     (curr_col == 0 || curr_col == cols-1);
 
-    // Check current state's color
+    // Check current state's color (open space or start)
     bool correctColor = image(curr_row, curr_col) == WHITE ||
                         image(curr_row, curr_col) == RED;
 
@@ -87,7 +87,7 @@ int main(int argc, char *argv[])
 
   // TODO: Write solution image to file
   if(found){
-    image(goal.row, goal.col) == GREEN;
+    image(goal.row, goal.col) = GREEN;
     std::cout << "Solution Found!";
   } else {
     std::cout << "No Solution Found...";
