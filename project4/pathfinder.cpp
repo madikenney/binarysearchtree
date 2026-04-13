@@ -62,11 +62,27 @@ int main(int argc, char *argv[])
   State goal;
 
   while(!frontier.isEmpty()){
+    // Get next state
     State curr = frontier.peekFront();
     frontier.dequeue();
 
     int curr_row = curr.row;
     int curr_col = curr.col;
+
+    // Check for goal state
+    // Check border on all sides
+    bool isBorder = (curr_row == 0 || curr_row == rows-1) || 
+                    (curr_col == 0 || curr_col == cols-1);
+
+    // Check current state's color
+    bool correctColor = image(curr_row, curr_col) == WHITE ||
+                        image(curr_row, curr_col) == RED;
+
+    if(isBorder && correctColor){
+      goal  = curr;
+      found = true;
+      break;
+    }
   }
 
   // TODO: Write solution image to file
