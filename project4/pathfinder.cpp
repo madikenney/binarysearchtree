@@ -83,6 +83,10 @@ int main(int argc, char *argv[])
       found = true;
       break;
     }
+
+    // Check neighbors
+    // Check left state
+    checkState(curr_row-1, curr_col, rows, cols);
   }
 
   // TODO: Write solution image to file
@@ -96,4 +100,13 @@ int main(int argc, char *argv[])
   writeToFile(image, output_file);
 
   return EXIT_SUCCESS;
+}
+
+void checkState(int new_row, int new_col, int rows, int cols){
+  bool in_row_bound = new_row >= 0 && new_row < rows;
+  bool in_col_bound = new_col >= 0 && new_col < cols;
+
+  if(in_row_bound && in_col_bound){
+    if(!visited[new_row, new_col])
+  }
 }
