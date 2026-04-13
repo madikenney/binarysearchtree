@@ -58,7 +58,16 @@ int main(int argc, char *argv[])
   frontier.enqueue(start);
   explored[start.row][start.col] = true;  // start = visited
 
-  
+  bool found = false;
+  State goal;
+
+  while(!frontier.isEmpty()){
+    State curr = frontier.peekFront();
+    frontier.dequeue();
+
+    int curr_row = curr.row;
+    int curr_col = curr.col;
+  }
 
   // TODO: Write solution image to file
   
