@@ -31,11 +31,11 @@ int main(int argc, char *argv[])
   int cols = image.width();
 
   // Find start pixel (red)
-  State start{-1, 1};
+  State start{-1, -1};
   int startCount = 0;
 
-  for(u_char i=0; i<rows; i++){
-    for(u_char j=0; j<cols; j++){
+  for(int i=0; i<rows; i++){
+    for(int j=0; j<cols; j++){
       if(image(i, j) == RED){
         start = {i, j};
         startCount++;
@@ -98,7 +98,7 @@ int main(int argc, char *argv[])
       bool in_col_bound = new_col >= 0 && new_col < cols;
 
       if(in_row_bound && in_col_bound){
-        if(!explored[new_row][new_col] && image(new_row, new_col) == WHITE){
+        if(!explored[new_row][new_col] && image(new_row, new_col) != BLACK){
           explored[new_row][new_col] = true;
           frontier.enqueue({new_row, new_col});
         }
@@ -109,7 +109,7 @@ int main(int argc, char *argv[])
   // TODO: Write solution image to file
   if(found){
     image(goal.row, goal.col) = GREEN;
-    std::cout << "Solution Found!";
+    std::cout << "Solution Found";
   } else {
     std::cout << "No Solution Found...";
   }
