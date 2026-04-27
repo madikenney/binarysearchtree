@@ -19,17 +19,16 @@ State<T> FrontierQueue<T>::pop() {
     // Find smallest child
     if( (left < queue.size()) && (queue[left].getFCost() < queue[smaller].getFCost()) ) {
       smaller = left;
-      std::swap(queue[i], queue[smaller]);
-      i = smaller;
     }
     if( (right < queue.size()) && (queue[right].getFCost() < queue[smaller].getFCost()) ) {
       smaller = right;
-      std::swap(queue[i], queue[smaller]);
-      i = smaller;
     }
 
     // No change occurs --> smallest is found
-    if(smaller == i){
+    if(smaller != i){
+      std::swap(queue[i], queue[smaller]);
+      i = smaller;
+    } else{
       break;
     }
   }
@@ -87,12 +86,12 @@ void FrontierQueue<T>::replaceif(const T &p, std::size_t cost) {
       queue[i] = State<T>(p, cost, heur);
 
       // Fix heap
-      int i=0;
-      while(i>0) {
-        int parent = (i-1)/2;
+      int curr=0;
+      while(curr>0) {
+        int parent = (curr-1)/2;
 
-        if(queue[i].getFCost() < queue[parent].getFCost()){
-          std::swap(queue[i], queue[parent]);
+        if(queue[curr].getFCost() < queue[parent].getFCost()){
+          std::swap(queue[curr], queue[parent]);
           i=parent;
         } else {
           break;
