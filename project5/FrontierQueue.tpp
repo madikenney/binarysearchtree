@@ -22,7 +22,13 @@ void FrontierQueue<T>::push(const T &p, std::size_t cost, std::size_t heur) {
   while(i>0) {
     int parent = (i-1)/2;
 
-
+    // Compare costs of current and parent
+    if(heap[i].getFCost() < heap[parent].getFCost()){
+      std::swap(heap[i], heap[parent]);
+      i=parent;
+    } else {
+      break;
+    }
   }
 }
 
