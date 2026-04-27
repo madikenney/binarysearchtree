@@ -10,7 +10,6 @@ State<T> FrontierQueue<T>::pop() {
   queue.pop_back();
 
   int i=0;
-  int n = queue.size();
 
   while(true){
     int left = 2*i + 1;
@@ -18,12 +17,12 @@ State<T> FrontierQueue<T>::pop() {
     int smaller = i;
 
     // Find smallest child
-    if( (left < n) && (queue[left].getFCost() < queue[smaller].getFCost) ) {
+    if( (left < queue.size()) && (queue[left].getFCost() < queue[smaller].getFCost()) ) {
       smaller = left;
       std::swap(queue[i], queue[smaller]);
       i = smaller;
     }
-    if( (right < n) && (queue[right].getFCost() < queue[smaller].getFCost) ) {
+    if( (right < queue.size()) && (queue[right].getFCost() < queue[smaller].getFCost()) ) {
       smaller = right;
       std::swap(queue[i], queue[smaller]);
       i = smaller;
@@ -80,7 +79,7 @@ bool FrontierQueue<T>::contains(const T &p) const {
 template <typename T>
 void FrontierQueue<T>::replaceif(const T &p, std::size_t cost) {
 
-  //TODO
+  
 
 }
 
