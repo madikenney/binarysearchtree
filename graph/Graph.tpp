@@ -13,6 +13,7 @@ int Graph<LabelType>::getNumEdges() const {
     int count = 0;
 
     for(int i=0; i<adjacent.size(); i++){
+        // count all edges stored in each point's array
         LabelType v = vertices[i];
         count += adjacent.at(v).size();
     }
@@ -22,6 +23,14 @@ int Graph<LabelType>::getNumEdges() const {
         
 template <typename LabelType> 
 bool Graph<LabelType>::add(LabelType start, LabelType end) { 
+    // Check for duplicate edge
+    for(int i=0; i<adjacent[start].size(); i++){
+        if(adjacent[start][i] == end){
+            return false;
+        }
+    }
+    
+    
     return false; 
 }   
 
