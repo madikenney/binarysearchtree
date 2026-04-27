@@ -79,7 +79,27 @@ bool FrontierQueue<T>::contains(const T &p) const {
 template <typename T>
 void FrontierQueue<T>::replaceif(const T &p, std::size_t cost) {
 
-  
+  for(int i=0; i<queue.size(); i++){
+    // Find state & determine if path is better
+    if( (queue[i].getValue() == p) && (cost < queue[i].getPathCost() )){
+      // Replace state
+      int heur = queue[i].getFCost() - queue[i].getPathCost();  // h = f - p
+      queue[i] = State<T>(p, cost, heur);
+
+      // Fix heap
+      int i=0;
+      while(i>0) {
+        int parent = (i-1)/2;
+
+        if(queue[i].getFCost() < queue[parent].getFCost()){
+          std::swap(queue[i], queue[parent]);
+          i=parent;
+        } else {
+          break;
+        }
+      }
+    }
+  }
 
 }
 
