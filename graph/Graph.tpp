@@ -83,7 +83,35 @@ bool Graph<LabelType>::remove(LabelType start, LabelType end) {
     adjacent[start].erase(adjacent[start].begin() + index);
 
     // Remove from end array
+    for(int i=0; i<adjacent[end].size(); i++){
+        if(adjacent[end][i] == start){
+            adjacent[end].erase(adjacent[end].begin() + i);
+            break;
+        }
+    }
+
+    // Remove vertices (if the removed edge was its only connection)
+    if(adjacent[start].size() == 0){
+        for(int i=0; i<vertices.size(); i++){
+            if(vertices[i] == start) {
+                vertices.erase(vertices.begin() + i);
+                break;
+            }
+        }
+        adjacent.erase(start);
+    }
     
+    if(adjacent[end].size() == 0){
+        for(int i=0; i<vertices.size(); i++){
+            if(vertices[i] == end) {
+                vertices.erase(vertices.begin() + i);
+                break;
+            }
+        }
+        adjacent.erase(end);
+    }
+
+    return true;
 }
 
 template <typename LabelType> 
