@@ -30,8 +30,36 @@ bool Graph<LabelType>::add(LabelType start, LabelType end) {
         }
     }
     
-    
-    return false; 
+    // Check if connected
+    bool startExists = false;
+    bool endExists = false;
+
+    for(int i=0; i<vertices.size(); i++){
+        if(vertices[i] == start){
+            startExists = true;
+        }
+        if(vertices[i] == end){
+            endExists = true;
+        }
+    }
+
+    // Cannot add edge
+    if((vertices.size()) > 0 && (!startExists && !endExists)){
+        return false;
+    }
+
+    // Add new vertice if it does not exist
+    if(!startExists) {
+        vertices.push_back(start);
+    }
+    if(!endExists) {
+        vertices.push_back(end);
+    }
+
+    // Add new edge for both points
+    adjacent[start].push_back(end);
+    adjacent[end].push_back(start);
+    return true; 
 }   
 
 template <typename LabelType> 
