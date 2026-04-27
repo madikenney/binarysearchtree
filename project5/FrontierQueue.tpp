@@ -12,9 +12,30 @@ State<T> FrontierQueue<T>::pop() {
   int i=0;
   int n = queue.size();
 
-  
+  while(true){
+    int left = 2*i + 1;
+    int right = 2*i + 2;
+    int smaller = i;
 
-  return State<T>(T(),0,0);
+    // Find smallest child
+    if( (left < n) && (queue[left].getFCost() < queue[smaller].getFCost) ) {
+      smaller = left;
+      std::swap(queue[i], queue[smaller]);
+      i = smaller;
+    }
+    if( (right < n) && (queue[right].getFCost() < queue[smaller].getFCost) ) {
+      smaller = right;
+      std::swap(queue[i], queue[smaller]);
+      i = smaller;
+    }
+
+    // No change occurs --> smallest is found
+    if(smaller == i){
+      break;
+    }
+  }
+
+  return currRoot;
 }
 
 template <typename T>
