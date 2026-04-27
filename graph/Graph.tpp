@@ -11,6 +11,13 @@ int Graph<LabelType>::getNumVertices() const {
 template <typename LabelType> 
 int Graph<LabelType>::getNumEdges() const {
     int count = 0;
+
+    for(int i=0; i<adjacent.size(); i++){
+        LabelType v = vertices[i];
+        count += adjacent.at(v).size();
+    }
+
+    return count / 2;
 }
         
 template <typename LabelType> 
