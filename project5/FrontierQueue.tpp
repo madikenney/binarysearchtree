@@ -4,6 +4,15 @@ template <typename T>
 State<T> FrontierQueue<T>::pop() {
 
   //TODO: implement this the same way we implemented pop in the heap lecture. Compare states using getFCost.
+  State<T> currRoot = queue[0];
+
+  queue[0] = queue.back();
+  queue.pop_back();
+
+  int i=0;
+  int n = queue.size();
+
+  
 
   return State<T>(T(),0,0);
 }
@@ -39,15 +48,12 @@ bool FrontierQueue<T>::empty() const {
 
 template <typename T> 
 bool FrontierQueue<T>::contains(const T &p) const {
-
   for(State<T> s : queue){
     if(s.getValue() == p){
       return true;
     }
   }
-
   return false;
-
 }
 
 template <typename T>
