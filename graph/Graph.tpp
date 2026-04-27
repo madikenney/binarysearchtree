@@ -64,7 +64,26 @@ bool Graph<LabelType>::add(LabelType start, LabelType end) {
 
 template <typename LabelType> 
 bool Graph<LabelType>::remove(LabelType start, LabelType end) {
-    return false;
+    // Find edge
+    bool found = false;
+    int index = 0;
+    for(int i=0; i<adjacent[start].size(); i++){
+        if(adjacent[start][i] == end){
+            found = true;
+            index = i;
+            break;
+        }
+    }
+
+    if(!found){
+        return false;
+    }
+
+    // Remove from start array
+    adjacent[start].erase(adjacent[start].begin() + index);
+
+    // Remove from end array
+    
 }
 
 template <typename LabelType> 
