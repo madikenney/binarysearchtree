@@ -40,7 +40,11 @@ bool FrontierQueue<T>::empty() const {
 template <typename T> 
 bool FrontierQueue<T>::contains(const T &p) const {
 
-  //TODO
+  for(int i=0; i<queue.size(); i++){
+    if(queue.getValue(i) == p){
+      return true;
+    }
+  }
 
   return false;
 
