@@ -23,12 +23,12 @@ int Graph<LabelType>::getNumEdges() const {
         
 template <typename LabelType> 
 bool Graph<LabelType>::add(LabelType start, LabelType end) { 
-    // Check for duplicate edge
-    for(int i=0; i<adjacent[start].size(); i++){
-        if(adjacent[start][i] == end){
-            return false;
-        }
-    }
+    // // Check for duplicate edge
+    // for(int i=0; i<adjacent[start].size(); i++){
+    //     if(adjacent[start][i] == end){
+    //         return false;
+    //     }
+    // }
     
     // Check if connected
     bool startExists = false;
@@ -57,58 +57,40 @@ bool Graph<LabelType>::add(LabelType start, LabelType end) {
     }
 
     // Add new edge for both points
-    adjacent[start].push_back(end);
-    adjacent[end].push_back(start);
+    adjacent[start].insert(end);
+    adjacent[end].insert(start);
     return true; 
 }   
 
 template <typename LabelType> 
 bool Graph<LabelType>::remove(LabelType start, LabelType end) {
     // Find edge
-    bool found = false;
-    int index = 0;
-    for(int i=0; i<adjacent[start].size(); i++){
-        if(adjacent[start][i] == end){
-            found = true;
-            index = i;
-            break;
-        }
-    }
-
-    if(!found){
+    if(adjacent[start].find(end) == adjacent[start].end()){
         return false;
     }
-
-    // Remove from start array
-    adjacent[start].erase(adjacent[start].begin() + index);
-
-    // Remove from end array
-    for(int i=0; i<adjacent[end].size(); i++){
-        if(adjacent[end][i] == start){
-            adjacent[end].erase(adjacent[end].begin() + i);
-            break;
-        }
-    }
-
-    // Remove vertices (if the removed edge was its only connection)
-    if(adjacent[start].size() == 0){
-        for(int i=0; i<vertices.size(); i++){
-            if(vertices[i] == start) {
-                vertices.erase(vertices.begin() + i);
-                break;
-            }
-        }
-        adjacent.erase(start);
-    }
     
-    if(adjacent[end].size() == 0){
+    // Remove edge from each adjacency list
+    adjacent[start].erase(end);
+    adjacent[end].erase(start);
+
+    // Remove vertice if isolated
+    if(adjacent[start].size() == 0){
+        adjacent.erase(start);
         for(int i=0; i<vertices.size(); i++){
-            if(vertices[i] == end) {
+            if(vertices[i] == start){
                 vertices.erase(vertices.begin() + i);
                 break;
             }
         }
+    }
+    if(adjacent[end].size() == 0){
         adjacent.erase(end);
+        for(int i=0; i<vertices.size(); i++){
+            if(vertices[i] == end){
+                vertices.erase(vertices.begin() + i);
+                break;
+            }
+        }
     }
 
     return true;

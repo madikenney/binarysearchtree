@@ -21,7 +21,7 @@ class Graph: public AbstractGraph<LabelType>
         void depthFirstTraversal(LabelType start, void visit(LabelType&));
 
         void breadthFirstTraversal(LabelType start, void visit(LabelType&));
-    private:
+    
         std::vector<LabelType> vertices;
         std::map<LabelType, std::set<LabelType>> adjacent;
 };
