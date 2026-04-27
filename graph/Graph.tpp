@@ -5,12 +5,12 @@ Graph<LabelType>::Graph() {}
 
 template <typename LabelType> 
 int Graph<LabelType>::getNumVertices() const {
-    return 0;
+    return adjacent.size();
 }
 
 template <typename LabelType> 
 int Graph<LabelType>::getNumEdges() const {
-    return 0;
+    int count = 0;
 }
         
 template <typename LabelType> 
