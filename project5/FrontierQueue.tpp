@@ -13,18 +13,18 @@ void FrontierQueue<T>::push(const T &p, std::size_t cost, std::size_t heur) {
 
   //TODO: implement this the same way we implemented push in the heap lecture.
   State<T> newState(p, cost, heur);
-  heap.push_back(newState);
+  queue.push_back(newState);
 
   // Counter variable
-  int i = heap.size()-1;
+  int i = queue.size()-1;
 
   // Move newState to correct position
   while(i>0) {
     int parent = (i-1)/2;
 
     // Compare costs of current and parent
-    if(heap[i].getFCost() < heap[parent].getFCost()){
-      std::swap(heap[i], heap[parent]);
+    if(queue[i].getFCost() < queue[parent].getFCost()){
+      std::swap(queue[i], queue[parent]);
       i=parent;
     } else {
       break;
@@ -34,10 +34,7 @@ void FrontierQueue<T>::push(const T &p, std::size_t cost, std::size_t heur) {
 
 template <typename T>
 bool FrontierQueue<T>::empty() const {
-
-  //TODO
-
-  return true;
+  return queue.empty();
 }
 
 template <typename T> 

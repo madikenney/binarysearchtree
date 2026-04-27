@@ -1,0 +1,22 @@
+[
+{
+  "directory": "/Users/Macbook151/Desktop/ECE 0302/ECE0302-MBK81/project5/build",
+  "command": "/usr/bin/clang++   -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk -mmacosx-version-min=14.6 -std=gnu++11 -o CMakeFiles/test-frontier-queue.dir/test_FrontierQueue.cpp.o -c \"/Users/Macbook151/Desktop/ECE 0302/ECE0302-MBK81/project5/test_FrontierQueue.cpp\"",
+  "file": "/Users/Macbook151/Desktop/ECE 0302/ECE0302-MBK81/project5/test_FrontierQueue.cpp"
+},
+{
+  "directory": "/Users/Macbook151/Desktop/ECE 0302/ECE0302-MBK81/project5/build",
+  "command": "/usr/bin/clang++   -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk -mmacosx-version-min=14.6 -std=gnu++11 -o CMakeFiles/test-solver.dir/test_PuzzleSolver.cpp.o -c \"/Users/Macbook151/Desktop/ECE 0302/ECE0302-MBK81/project5/test_PuzzleSolver.cpp\"",
+  "file": "/Users/Macbook151/Desktop/ECE 0302/ECE0302-MBK81/project5/test_PuzzleSolver.cpp"
+},
+{
+  "directory": "/Users/Macbook151/Desktop/ECE 0302/ECE0302-MBK81/project5/build",
+  "command": "/usr/bin/clang++   -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk -mmacosx-version-min=14.6 -std=gnu++11 -o CMakeFiles/test-solver.dir/Puzzle.cpp.o -c \"/Users/Macbook151/Desktop/ECE 0302/ECE0302-MBK81/project5/Puzzle.cpp\"",
+  "file": "/Users/Macbook151/Desktop/ECE 0302/ECE0302-MBK81/project5/Puzzle.cpp"
+},
+{
+  "directory": "/Users/Macbook151/Desktop/ECE 0302/ECE0302-MBK81/project5/build",
+  "command": "/usr/bin/clang++   -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk -mmacosx-version-min=14.6 -std=gnu++11 -o CMakeFiles/test-solver.dir/PuzzleSolver.cpp.o -c \"/Users/Macbook151/Desktop/ECE 0302/ECE0302-MBK81/project5/PuzzleSolver.cpp\"",
+  "file": "/Users/Macbook151/Desktop/ECE 0302/ECE0302-MBK81/project5/PuzzleSolver.cpp"
+}
+]
