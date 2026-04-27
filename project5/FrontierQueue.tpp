@@ -86,7 +86,7 @@ void FrontierQueue<T>::replaceif(const T &p, std::size_t cost) {
       queue[i] = State<T>(p, cost, heur);
 
       // Fix heap
-      int curr=0;
+      int curr=i;
       while(curr>0) {
         int parent = (curr-1)/2;
 
@@ -97,6 +97,7 @@ void FrontierQueue<T>::replaceif(const T &p, std::size_t cost) {
           break;
         }
       }
+
     }
   }
 
